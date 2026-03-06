@@ -11,6 +11,7 @@
   --teal: #567C8D;
   --teal-light: #6a95a8;
   --teal-dark: #456472;
+  --cherry-red: #D1174B;
   --beige: #F5EFEB;
   --beige-dark: #e8ddd6;
   --sky-blue: #C8D9E6;
@@ -3949,4 +3950,174 @@ img {
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
   font-weight: 700;
+}
+
+/* ============================================
+   SERVICES SECTION V2 (Excellent Service)
+   ============================================ */
+.services-v2-container {
+  background: var(--navy);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-v2-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+
+.services-v2-title-area {
+  flex: 1;
+}
+
+.services-v2-nav {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+.services-v2-grid {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding: 20px 0 40px;
+  scrollbar-width: none;
+  /* Hide scrollbar Firefox */
+  scroll-behavior: smooth;
+}
+
+.services-v2-grid::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar Chrome/Safari */
+}
+
+.service-card-v2 {
+  min-width: 320px;
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.service-card-v2:hover {
+  transform: translateY(-10px);
+}
+
+.service-card-v2-image {
+  height: 220px;
+  position: relative;
+}
+
+.service-card-v2-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-card-v2-icon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 70px;
+  height: 70px;
+  background: var(--teal);
+  /* Using teal for primary icons */
+  border: 4px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.8rem;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.service-card-v2:hover .service-card-v2-icon {
+  background: var(--cherry-red);
+  /* Switch to cherry red on hover */
+  transform: translate(-50%, 50%) scale(1.1) rotate(10deg);
+}
+
+.service-card-v2-content {
+  padding: 45px 30px 35px;
+  text-align: center;
+}
+
+.service-card-v2-content h3 {
+  color: var(--navy);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.service-card-v2-content p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.section-label-v2 {
+  color: var(--teal);
+  font-weight: 700;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.section-label-v2::before {
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: var(--teal);
+}
+
+.section-title-v2 {
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .section-title-v2 {
+    font-size: 2.2rem;
+  }
+
+  .services-v2-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .service-card-v2 {
+    min-width: 280px;
+  }
 }

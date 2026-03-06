@@ -27,6 +27,8 @@ import {
   FaIndustry,
   FaCog,
   FaTrophy,
+  FaChevronLeft,
+  FaChevronRight,
 } from "react-icons/fa";
 import { MdPlumbing, MdKitchen } from "react-icons/md";
 import { serviceCategories } from "./data/services";
@@ -345,39 +347,70 @@ export default function HomePage() {
       </section>
 
 
-      {/* ====== SERVICES - INFINITE SCROLL ====== */}
-      <section className="section" id="services">
+      {/* ====== SERVICES SECTION V2 ====== */}
+      <section className="services-v2-container" id="services">
         <div className="container">
           <AnimateOnScroll>
-            <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <span className="section-label">What We Offer</span>
-              <h2 className="section-title">Our Services</h2>
-              <p className="section-subtitle" style={{ margin: "0 auto" }}>
-                We provide a comprehensive range of sanitary fittings, plumbing products, hardware, and expert solutions.
-              </p>
+            <div className="services-v2-header">
+              <div className="services-v2-title-area">
+                <span className="section-label-v2">OUR SERVICE</span>
+                <h2 className="section-title-v2">Our Excellent Service</h2>
+              </div>
+              <div className="services-v2-nav">
+                <button
+                  className="nav-btn"
+                  onClick={() => {
+                    const grid = document.getElementById('services-grid-v2');
+                    if (grid) grid.scrollBy({ left: -344, behavior: 'smooth' });
+                  }}
+                  aria-label="Previous"
+                >
+                  <FaChevronLeft />
+                </button>
+                <button
+                  className="nav-btn"
+                  onClick={() => {
+                    const grid = document.getElementById('services-grid-v2');
+                    if (grid) grid.scrollBy({ left: 344, behavior: 'smooth' });
+                  }}
+                  aria-label="Next"
+                >
+                  <FaChevronRight />
+                </button>
+              </div>
             </div>
           </AnimateOnScroll>
-          <div className="marquee-container">
-            <div className="marquee-track">
-              {[...serviceCategories, ...serviceCategories].map((cat, i) => (
-                <Link href={`/services/${cat.slug}`} key={i} className="marquee-card glass-card">
-                  <div className="marquee-card-image">
+
+          <div className="services-v2-grid" id="services-grid-v2">
+            {serviceCategories.map((cat, i) => {
+              // Map slugs to appropriate icons
+              let Icon = FaCubes;
+              if (cat.slug.includes('pipe')) Icon = FaWrench;
+              if (cat.slug.includes('bath') || cat.slug.includes('sanitary')) Icon = FaBath;
+              if (cat.slug.includes('paint')) Icon = FaTint;
+              if (cat.slug.includes('valve')) Icon = FaIndustry;
+              if (cat.slug.includes('fastener') || cat.slug.includes('clamp')) Icon = FaCog;
+
+              return (
+                <Link href={`/services/${cat.slug}`} key={i} className="service-card-v2">
+                  <div className="service-card-v2-image">
                     <img src={cat.image} alt={cat.title} />
+                    <div className="service-card-v2-icon">
+                      <Icon />
+                    </div>
                   </div>
-                  <div className="marquee-card-content">
+                  <div className="service-card-v2-content">
                     <h3>{cat.title}</h3>
                     <p>{cat.shortDesc}</p>
-                    <span className="marquee-card-link">
-                      View Products <FaArrowRight />
-                    </span>
                   </div>
                 </Link>
-              ))}
-            </div>
+              );
+            })}
           </div>
+
           <AnimateOnScroll>
             <div style={{ textAlign: "center", marginTop: 40 }}>
-              <Link href="/services" className="btn btn-primary">
+              <Link href="/services" className="btn btn-primary" style={{ background: 'var(--teal)', borderColor: 'var(--teal)' }}>
                 View All Services <FaArrowRight />
               </Link>
             </div>
