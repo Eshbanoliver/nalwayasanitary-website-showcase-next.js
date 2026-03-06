@@ -3998,22 +3998,30 @@ img {
 }
 
 .services-v2-grid {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  padding: 20px 0 40px;
-  scrollbar-width: none;
-  /* Hide scrollbar Firefox */
-  scroll-behavior: smooth;
+  display: flex !important;
+  overflow: hidden !important;
+  /* Changed from overflow-x: auto to hide scrollbar for marquee */
+  padding: 20px 0 60px !important;
+  position: relative;
+  width: 100%;
 }
 
-.services-v2-grid::-webkit-scrollbar {
-  display: none;
-  /* Hide scrollbar Chrome/Safari */
+.services-v2-track {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 24px !important;
+  width: max-content !important;
+  animation: marqueeScroll 45s linear infinite !important;
+}
+
+.services-v2-grid:hover .services-v2-track {
+  animation-play-state: paused !important;
 }
 
 .service-card-v2 {
-  min-width: 320px;
+  flex-shrink: 0 !important;
+  /* Important for flex row with many items */
+  width: 340px !important;
   background: #fff;
   border-radius: 24px;
   overflow: hidden;

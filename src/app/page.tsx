@@ -382,30 +382,32 @@ export default function HomePage() {
           </AnimateOnScroll>
 
           <div className="services-v2-grid" id="services-grid-v2">
-            {serviceCategories.map((cat, i) => {
-              // Map slugs to appropriate icons
-              let Icon = FaCubes;
-              if (cat.slug.includes('pipe')) Icon = FaWrench;
-              if (cat.slug.includes('bath') || cat.slug.includes('sanitary')) Icon = FaBath;
-              if (cat.slug.includes('paint')) Icon = FaTint;
-              if (cat.slug.includes('valve')) Icon = FaIndustry;
-              if (cat.slug.includes('fastener') || cat.slug.includes('clamp')) Icon = FaCog;
+            <div className="services-v2-track">
+              {[...serviceCategories, ...serviceCategories].map((cat, i) => {
+                // Map slugs to appropriate icons
+                let Icon = FaCubes;
+                if (cat.slug.includes('pipe')) Icon = FaWrench;
+                if (cat.slug.includes('bath') || cat.slug.includes('sanitary')) Icon = FaBath;
+                if (cat.slug.includes('paint')) Icon = FaTint;
+                if (cat.slug.includes('valve')) Icon = FaIndustry;
+                if (cat.slug.includes('fastener') || cat.slug.includes('clamp')) Icon = FaCog;
 
-              return (
-                <Link href={`/services/${cat.slug}`} key={i} className="service-card-v2">
-                  <div className="service-card-v2-image">
-                    <img src={cat.image} alt={cat.title} />
-                    <div className="service-card-v2-icon">
-                      <Icon />
+                return (
+                  <Link href={`/services/${cat.slug}`} key={i} className="service-card-v2">
+                    <div className="service-card-v2-image">
+                      <img src={cat.image} alt={cat.title} />
+                      <div className="service-card-v2-icon">
+                        <Icon />
+                      </div>
                     </div>
-                  </div>
-                  <div className="service-card-v2-content">
-                    <h3>{cat.title}</h3>
-                    <p>{cat.shortDesc}</p>
-                  </div>
-                </Link>
-              );
-            })}
+                    <div className="service-card-v2-content">
+                      <h3>{cat.title}</h3>
+                      <p>{cat.shortDesc}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
 
           <AnimateOnScroll>
