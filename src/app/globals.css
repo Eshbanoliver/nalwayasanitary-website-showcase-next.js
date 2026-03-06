@@ -1108,21 +1108,24 @@ img {
 
 .card-v3-gradient {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle at bottom right, var(--card-accent), transparent 70%);
-  opacity: 0.05;
-  transition: all 0.6s ease;
+  bottom: -50px;
+  right: -50px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle at center, var(--card-accent), transparent 70%);
+  opacity: 0.25;
+  filter: blur(40px);
+  transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
   pointer-events: none;
-  border-bottom-right-radius: 40px;
+  z-index: 0;
 }
 
 .card-v3:hover .card-v3-gradient {
-  opacity: 0.12;
-  width: 200px;
-  height: 200px;
+  opacity: 0.45;
+  width: 700px;
+  height: 700px;
+  bottom: -100px;
+  right: -100px;
 }
 
 .card-v3::after {
@@ -1140,11 +1143,13 @@ img {
 }
 
 .card-v3.mission {
-  --card-accent: var(--teal);
+  --card-accent: #ef4444;
+  /* Vibrant Red */
 }
 
 .card-v3.vision {
-  --card-accent: var(--navy);
+  --card-accent: #3b82f6;
+  /* Vibrant Blue */
 }
 
 .card-v3-number {
