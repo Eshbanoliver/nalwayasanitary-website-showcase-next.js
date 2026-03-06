@@ -336,7 +336,7 @@ export default function HomePage() {
                   value: "10+",
                   title: "Brands",
                   desc: "Authorized supplier for globally recognized premium brands like Jaquar and Cera.",
-                  color: "card-amber"
+                  color: "card-red"
                 },
               ].map((m, i) => (
                 <div key={i} className={`metric-card-v2 ${m.color}`}>

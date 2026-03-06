@@ -210,16 +210,33 @@ img {
 }
 
 .glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-lg);
   padding: 32px;
-  box-shadow: var(--glass-shadow);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.05);
   transition: all var(--transition-smooth);
   position: relative;
   overflow: hidden;
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: -150%;
+  left: -150%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.1) 50%, transparent 55%);
+  transition: all 0.8s ease;
+  pointer-events: none;
+}
+
+.glass-card:hover::after {
+  top: 150%;
+  left: 150%;
 }
 
 .glass-card::before {
@@ -2255,26 +2272,47 @@ img {
 .feature-card-modern {
   padding: 40px;
   color: var(--white);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   gap: 15px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card-modern::after {
+  content: '';
+  position: absolute;
+  top: -150%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s ease;
+}
+
+.feature-card-modern:hover::after {
+  top: 150%;
 }
 
 .feature-card-modern:nth-child(1) {
-  background: #4a6a7a;
+  background: rgba(74, 106, 122, 0.85);
 }
 
 .feature-card-modern:nth-child(2) {
-  background: #567c8d;
+  background: rgba(86, 124, 141, 0.85);
 }
 
 .feature-card-modern:nth-child(3) {
-  background: #628ea1;
+  background: rgba(98, 142, 161, 0.85);
 }
 
 .feature-card-modern:nth-child(4) {
-  background: #6ea0b5;
+  background: rgba(110, 160, 181, 0.85);
 }
 
 .feature-card-modern:hover {
@@ -2513,11 +2551,16 @@ img {
 
 .why-item {
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
 }
 
 .why-item:hover {
-  background: rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.15) !important;
   transform: scale(1.02);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .features-overlap {
@@ -2555,6 +2598,11 @@ img {
   min-height: 380px;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   cursor: pointer;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 .about-card-modern:hover {
@@ -2564,13 +2612,11 @@ img {
 
 
 .about-card-modern.blue {
-  background: #7388C1;
-  /* Eye-catchy muted blue/purple */
+  background: rgba(115, 136, 193, 0.75);
 }
 
 .about-card-modern.dark {
-  background: #1e1b1b;
-  /* Deep dark chocolate/black */
+  background: rgba(30, 27, 27, 0.85);
 }
 
 .about-card-image {
@@ -3286,8 +3332,11 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
   background: var(--card-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .metric-card-v2:hover {
@@ -3362,12 +3411,12 @@ img {
 
 /* Colors Classes */
 .card-blue {
-  --card-bg: #01539D;
+  --card-bg: rgba(1, 83, 157, 0.85);
   --card-accent: #FFBC00;
 }
 
 .card-yellow {
-  --card-bg: #FFBC00;
+  --card-bg: rgba(255, 188, 0, 0.85);
   --card-accent: #01539D;
   color: var(--navy);
 }
@@ -3379,12 +3428,12 @@ img {
 }
 
 .card-teal {
-  --card-bg: #00A896;
+  --card-bg: rgba(0, 168, 150, 0.85);
   --card-accent: #FFBC00;
 }
 
-.card-amber {
-  --card-bg: #E85D04;
+.card-red {
+  --card-bg: rgba(210, 4, 45, 0.85);
   --card-accent: #1E293B;
 }
 
