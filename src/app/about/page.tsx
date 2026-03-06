@@ -130,25 +130,20 @@ export default function AboutPage() {
                         {[
                             {
                                 icon: <FaAward />,
-                                number: "20+",
+                                value: "20+",
                                 label: "Years of Industry Experience",
                             },
-                            { icon: <FaUsers />, number: "1000+", label: "Happy Customers" },
-                            {
-                                icon: <FaBoxes />,
-                                number: "50+",
-                                label: "Product Categories",
-                            },
-                            {
-                                icon: <FaTags />,
-                                number: "10+",
-                                label: "Premium Brands Available",
-                            },
-                        ].map((m, i) => (
-                            <div key={i} className="glass-card metric-card">
-                                <div className="metric-icon">{m.icon}</div>
-                                <div className="metric-number">{m.number}</div>
-                                <div className="metric-label">{m.label}</div>
+                            { icon: <FaUsers />, value: "1000+", label: "Happy Customers" },
+                            { icon: <FaBoxes />, value: "50+", label: "Product Categories" },
+                            { icon: <FaTags />, value: "10+", label: "Premium Brands Available" },
+                        ].map((item, idx) => (
+                            <div key={idx} className="metric-card">
+                                <div className="metric-icon-wrapper">
+                                    <div className="metric-icon-bg"></div>
+                                    <div className="metric-icon">{item.icon}</div>
+                                </div>
+                                <div className="metric-number">{item.value}</div>
+                                <div className="metric-label">{item.label}</div>
                             </div>
                         ))}
                     </div>

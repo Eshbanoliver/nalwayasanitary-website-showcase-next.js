@@ -304,27 +304,54 @@ export default function HomePage() {
       </section>
 
 
-      {/* ====== METRICS ====== */}
-      <section className="section section-alt">
+      {/* ====== FANCY METRICS (Reference Design) ====== */}
+      <section className="metrics-section-v2">
         <div className="container">
           <AnimateOnScroll>
-            <div className="metrics-grid">
+            <div className="metrics-row-v2">
               {[
-                { icon: <FaAward />, number: "20+", label: "Years of Industry Experience" },
-                { icon: <FaUsers />, number: "1000+", label: "Happy Customers" },
-                { icon: <FaBoxes />, number: "50+", label: "Product Categories" },
-                { icon: <FaTags />, number: "10+", label: "Premium Brands Available" },
+                {
+                  icon: <FaAward />,
+                  value: "20+",
+                  title: "Experience",
+                  desc: "Two decades of proven excellence and trusted service in the Udaipur market.",
+                  color: "card-blue"
+                },
+                {
+                  icon: <FaUsers />,
+                  value: "1000+",
+                  title: "Customers",
+                  desc: "Vast network of happy homeowners and professional contractors across Rajasthan.",
+                  color: "card-yellow"
+                },
+                {
+                  icon: <FaBoxes />,
+                  value: "50+",
+                  title: "Categories",
+                  desc: "Comprehensive range of sanitary and plumbing parts available under one roof.",
+                  color: "card-teal"
+                },
+                {
+                  icon: <FaTags />,
+                  value: "10+",
+                  title: "Brands",
+                  desc: "Authorized supplier for globally recognized premium brands like Jaquar and Cera.",
+                  color: "card-amber"
+                },
               ].map((m, i) => (
-                <div key={i} className="glass-card metric-card">
-                  <div className="metric-icon">{m.icon}</div>
-                  <div className="metric-number">{m.number}</div>
-                  <div className="metric-label">{m.label}</div>
+                <div key={i} className={`metric-card-v2 ${m.color}`}>
+                  <div className="metric-icon-v2">{m.icon}</div>
+                  <h3>{m.value}</h3>
+                  <div className="metric-title">{m.title}</div>
+                  <p className="metric-desc">{m.desc}</p>
+                  <div className="read-more-accent">Read More</div>
                 </div>
               ))}
             </div>
           </AnimateOnScroll>
         </div>
       </section>
+
 
       {/* ====== SERVICES ====== */}
       <section className="section">
