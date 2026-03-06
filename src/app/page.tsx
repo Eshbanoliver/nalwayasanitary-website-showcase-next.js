@@ -540,44 +540,49 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ====== TESTIMONIALS ====== */}
-      <section className="section">
+      {/* ====== TESTIMONIALS (INFINITE SCROLL) ====== */}
+      <section className="testimonial-section-creative">
+        <div className="testimonial-bg-blob"></div>
         <div className="container">
           <AnimateOnScroll>
-            <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <span className="section-label">Testimonials</span>
-              <h2 className="section-title">What Our Customers Say</h2>
-              <p className="section-subtitle" style={{ margin: "0 auto" }}>
-                Hear from our satisfied clients who trust us for their plumbing and sanitary needs.
+            <div style={{ textAlign: "center", marginBottom: 60 }}>
+              <span className="mv-badge">What People Say</span>
+              <h2 className="mv-main-title">Customer <span>Reviews</span></h2>
+              <p className="mv-main-desc" style={{ margin: "0 auto", maxWidth: 600 }}>
+                Hear from our satisfied clients who trust us for their plumbing and sanitary needs across Rajasthan.
               </p>
             </div>
           </AnimateOnScroll>
-          <AnimateOnScroll>
-            <div className="testimonials-grid">
-              {testimonials.map((t, i) => (
-                <div key={i} className="glass-card testimonial-card">
-                  <div className="testimonial-quote">&ldquo;</div>
-                  <div className="testimonial-stars">
-                    {[...Array(5)].map((_, j) => (
-                      <FaStar key={j} />
-                    ))}
-                  </div>
-                  <p className="testimonial-text">{t.text}</p>
-                  <div className="testimonial-author">
-                    <div className="testimonial-avatar">{t.initials}</div>
-                    <div>
-                      <div className="testimonial-name">{t.name}</div>
-                      <div className="testimonial-role">{t.role}</div>
-                    </div>
+        </div>
+
+        <div className="testimonial-marquee-container" id="homepage-testimonials-marquee">
+          <div className="testimonial-marquee-track">
+            {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
+              <div key={i} className={`testimonial-card-v3 outline-variant-${(i % 3) + 1}`}>
+                <div className="testimonial-giant-quote">&ldquo;</div>
+                <div className="testimonial-stars-v3">
+                  {[...Array(5)].map((_, j) => (
+                    <FaStar key={j} />
+                  ))}
+                </div>
+                <p className="testimonial-text-v3">{t.text}</p>
+                <div className="testimonial-author-v3">
+                  <div className="testimonial-avatar-v3">{t.initials}</div>
+                  <div className="testimonial-info-v3">
+                    <h4>{t.name}</h4>
+                    <span>{t.role}</span>
                   </div>
                 </div>
-              ))}
-            </div>
-          </AnimateOnScroll>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="container">
           <AnimateOnScroll>
-            <div style={{ textAlign: "center", marginTop: 40 }}>
-              <Link href="/testimonials" className="btn btn-primary">
-                See All Testimonials <FaArrowRight />
+            <div style={{ textAlign: "center", marginTop: 60 }}>
+              <Link href="/testimonials" className="btn btn-primary" style={{ padding: '20px 40px', borderRadius: '100px' }}>
+                View All Success Stories <FaArrowRight />
               </Link>
             </div>
           </AnimateOnScroll>
