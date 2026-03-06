@@ -403,6 +403,11 @@ export default function HomePage() {
                     <div className="service-card-v2-content">
                       <h3>{cat.title}</h3>
                       <p>{cat.shortDesc}</p>
+                      <div className="service-card-btn-wrapper">
+                        <span className="service-card-btn">
+                          Discover more <FaArrowRight />
+                        </span>
+                      </div>
                     </div>
                   </Link>
                 );
@@ -420,30 +425,56 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ====== MISSION & VISION ====== */}
-      <section className="section section-alt">
+      {/* ====== MISSION & VISION (CREATIVE) ====== */}
+      <section className="mv-section-creative">
+        <div className="mv-bg-decorative">
+          <div className="mv-circle circle-1"></div>
+          <div className="mv-circle circle-2"></div>
+        </div>
+
         <div className="container">
           <AnimateOnScroll>
-            <div className="mv-grid">
-              <div className="glass-card mv-card">
-                <div className="mv-icon">
-                  <FaBullseye />
-                </div>
-                <h3>Our Mission</h3>
-                <p>
-                  Our mission is to provide genuine sanitary fittings and plumbing solutions that deliver durability,
-                  reliability, and value to our customers while maintaining the highest standards of quality and service.
+            <div className="mv-grid-creative">
+              <div className="mv-text-content">
+                <span className="mv-badge">Strategic Path</span>
+                <h2 className="mv-main-title">
+                  Defining Our <span>Core Purpose</span>
+                </h2>
+                <p className="mv-main-desc">
+                  We are committed to excellence in every fitting we supply, driven by a clear mission
+                  and a bold vision for the future of sanitary solutions in Rajasthan.
                 </p>
+                <Link href="/about" className="btn btn-primary">
+                  Learn Our Story <FaArrowRight />
+                </Link>
               </div>
-              <div className="glass-card mv-card">
-                <div className="mv-icon">
-                  <FaEye />
+
+              <div className="mv-cards-creative-stack">
+                <div className="card-v3 mission">
+                  <div className="card-v3-number">01</div>
+                  <div className="card-v3-gradient"></div>
+                  <div className="card-v3-icon">
+                    <FaBullseye />
+                  </div>
+                  <h3>Our Mission</h3>
+                  <p>
+                    Our mission is to provide genuine sanitary fittings and plumbing solutions that deliver durability,
+                    reliability, and value to our customers while maintaining the highest standards of quality and service.
+                  </p>
                 </div>
-                <h3>Our Vision</h3>
-                <p>
-                  Our vision is to become one of the most trusted sanitary fittings and plumbing suppliers in Rajasthan,
-                  known for premium brands, expert solutions, and long-term customer relationships.
-                </p>
+
+                <div className="card-v3 vision">
+                  <div className="card-v3-number">02</div>
+                  <div className="card-v3-gradient"></div>
+                  <div className="card-v3-icon">
+                    <FaEye />
+                  </div>
+                  <h3>Our Vision</h3>
+                  <p>
+                    Our vision is to become one of the most trusted sanitary fittings and plumbing suppliers in Rajasthan,
+                    known for premium brands, expert solutions, and long-term customer relationships.
+                  </p>
+                </div>
               </div>
             </div>
           </AnimateOnScroll>
