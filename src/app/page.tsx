@@ -65,19 +65,19 @@ function AnimateOnScroll({ children, className = "" }: { children: React.ReactNo
   );
 }
 
-/* -------  FAQ Item  ------- */
-function FAQItem({ q, a }: { q: string; a: string }) {
+/* -------  FAQ Item V3  ------- */
+function FAQItemV3({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="faq-item">
-      <button className={`faq-question ${open ? "open" : ""}`} onClick={() => setOpen(!open)}>
+    <div className={`faq-item-v3 ${open ? "open" : ""}`}>
+      <button className="faq-question-v3" onClick={() => setOpen(!open)}>
         {q}
-        <span className="faq-icon">
-          <FaChevronDown />
+        <span className="faq-icon-v3">
+          {open ? <span style={{ fontSize: '1.2rem', fontWeight: 800 }}>-</span> : <FaChevronDown />}
         </span>
       </button>
-      <div className={`faq-answer ${open ? "open" : ""}`}>
-        <div className="faq-answer-content">{a}</div>
+      <div className="faq-answer-v3">
+        <div className="faq-answer-content-v3">{a}</div>
       </div>
     </div>
   );
@@ -589,22 +589,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ====== FAQ ====== */}
-      <section className="section section-alt">
+      {/* ====== FAQ (V3 MODERN) ====== */}
+      <section className="faq-section-v3">
         <div className="container">
-          <AnimateOnScroll>
-            <div style={{ textAlign: "center", marginBottom: 48 }}>
-              <span className="section-label">Common Questions</span>
-              <h2 className="section-title">Frequently Asked Questions</h2>
+          <div className="faq-grid-v3">
+            <div className="faq-content-v3">
+              <AnimateOnScroll>
+                <span className="faq-badge-v3">F. A. Q</span>
+                <h2 className="faq-title-v3">Frequently Asked Questions</h2>
+                <p className="faq-desc-v3">
+                  Find answers to common questions about our genuine sanitary products,
+                  expert plumbing services, and how we serve customers across Rajasthan.
+                </p>
+                <div className="faq-accent-line"></div>
+              </AnimateOnScroll>
             </div>
-          </AnimateOnScroll>
-          <AnimateOnScroll>
-            <div className="faq-list">
-              {faqs.map((f, i) => (
-                <FAQItem key={i} q={f.q} a={f.a} />
-              ))}
+
+            <div className="faq-accordion-v3">
+              <AnimateOnScroll>
+                {faqs.map((f, i) => (
+                  <FAQItemV3 key={i} q={f.q} a={f.a} />
+                ))}
+              </AnimateOnScroll>
             </div>
-          </AnimateOnScroll>
+          </div>
         </div>
       </section>
 
