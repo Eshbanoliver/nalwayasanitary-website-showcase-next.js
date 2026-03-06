@@ -82,12 +82,10 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 /* -------  Data  ------- */
 const services = [
-  { icon: <FaBath />, title: "Sanitary Fittings Supply", desc: "Wholesale supply of high-quality bathroom and sanitary fittings for residential and commercial projects." },
-  { icon: <FaCubes />, title: "Bathroom Accessories & Spare Parts", desc: "Original spare parts and accessories for premium sanitary brands." },
-  { icon: <MdPlumbing />, title: "Plumbing Fittings Supply", desc: "Reliable plumbing fittings and components for every construction need." },
-  { icon: <FaCog />, title: "PVC Pipes Supply", desc: "Durable PVC pipes suitable for plumbing and water systems." },
-  { icon: <MdKitchen />, title: "Kitchen Sink Supply", desc: "Modern and durable kitchen sinks for homes and commercial kitchens." },
-  { icon: <FaTint />, title: "Water Tank Supply", desc: "Dealer for high-quality water storage tanks including Plasto water tanks." },
+  { image: "/service-sanitary.png", icon: <FaBath />, title: "Sanitary Fittings Supply", desc: "Wholesale supply of high-quality bathroom and sanitary fittings for residential and commercial projects." },
+  { image: "/service-parts.png", icon: <FaCubes />, title: "Bathroom Accessories", desc: "Original spare parts and accessories for premium sanitary brands." },
+  { image: "/service-plumbing.png", icon: <MdPlumbing />, title: "Plumbing Fittings Supply", desc: "Reliable plumbing fittings and components for every construction need." },
+  { image: "/service-pvc.png", icon: <FaCog />, title: "PVC Pipes Supply", desc: "Durable PVC pipes suitable for plumbing and water systems." },
 ];
 
 const testimonials = [
@@ -367,12 +365,19 @@ export default function HomePage() {
             </div>
           </AnimateOnScroll>
           <AnimateOnScroll>
-            <div className="services-grid">
+            <div className="services-grid-modern">
               {services.map((s, i) => (
-                <div key={i} className="glass-card service-card">
-                  <div className="service-card-icon">{s.icon}</div>
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
+                <div key={i} className="glass-card service-card-modern">
+                  <div className="service-image-wrapper">
+                    <img src={s.image} alt={s.title} className="service-image" />
+                  </div>
+                  <div className="service-icon-wrapper">
+                    {s.icon}
+                  </div>
+                  <div className="service-content">
+                    <h3>{s.title}</h3>
+                    <p>{s.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
