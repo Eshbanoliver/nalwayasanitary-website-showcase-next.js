@@ -1,153 +1,91 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
+import { serviceCategories } from "../data/services";
 import {
-    FaCubes,
-    FaWrench,
-    FaTint,
-    FaBath,
-    FaIndustry,
-    FaCog,
-    FaThLarge,
-    FaBuilding,
-    FaHardHat,
-    FaPhoneAlt,
     FaArrowRight,
-    FaTachometerAlt,
+    FaHome,
+    FaPhoneAlt,
+    FaChevronRight,
 } from "react-icons/fa";
-import { MdPlumbing, MdKitchen, MdPool } from "react-icons/md";
-
-export const metadata: Metadata = {
-    title: "Services | Nalwaya Fitting Suppliers – Udaipur",
-    description:
-        "Explore our comprehensive range of sanitary fittings, plumbing solutions, PVC pipes, kitchen sinks, water tanks, industrial valves, and more.",
-};
-
-const allServices = [
-    {
-        icon: <FaBath />,
-        title: "Sanitary Fittings Supply",
-        desc: "Wholesale supply of high-quality bathroom and sanitary fittings from globally trusted brands for residential and commercial projects.",
-    },
-    {
-        icon: <FaCubes />,
-        title: "Bathroom Accessories & Spare Parts",
-        desc: "Original spare parts and accessories for premium sanitary brands. We keep extensive inventory to ensure quick availability.",
-    },
-    {
-        icon: <MdPlumbing />,
-        title: "Plumbing Fittings Supply",
-        desc: "Reliable plumbing fittings and components for residential and commercial use, sourced from certified manufacturers.",
-    },
-    {
-        icon: <FaCog />,
-        title: "PVC Pipes Supply",
-        desc: "Durable PVC pipes suitable for plumbing and water systems, available in all standard sizes and specifications.",
-    },
-    {
-        icon: <MdKitchen />,
-        title: "Kitchen Sink Supply",
-        desc: "Modern and durable kitchen sinks for homes and commercial kitchens, available in stainless steel and granite finishes.",
-    },
-    {
-        icon: <FaTint />,
-        title: "Water Tank Supply",
-        desc: "Dealer for high-quality water storage tanks including Plasto water tanks in various capacities for residential and commercial use.",
-    },
-    {
-        icon: <FaTachometerAlt />,
-        title: "Water Meter Supply",
-        desc: "Accurate and reliable water meter solutions for residential complexes, commercial buildings, and municipal projects.",
-    },
-    {
-        icon: <MdPool />,
-        title: "Swimming Pool Equipment Supply",
-        desc: "Essential equipment for maintaining and operating swimming pools including filters, pumps, accessories, and fittings.",
-    },
-    {
-        icon: <FaIndustry />,
-        title: "Industrial Valves Supply",
-        desc: "Zoloto valves and other industrial plumbing valves for heavy-duty applications in construction and industrial projects.",
-    },
-    {
-        icon: <FaThLarge />,
-        title: "Slotted Channel Supply",
-        desc: "C Slotted Channels and Z Slotted Channels for construction and plumbing installations, available in multiple sizes.",
-    },
-    {
-        icon: <FaBuilding />,
-        title: "Hotel Sanitary Fittings Supply",
-        desc: "Large-scale supply of premium sanitary fittings for hotels, resorts, and commercial establishments across Rajasthan.",
-    },
-    {
-        icon: <FaHardHat />,
-        title: "Plumbing & Sanitary Work",
-        desc: "Professional plumbing installation and repair services by experienced technicians for all types of projects.",
-    },
-];
 
 export default function ServicesPage() {
     return (
         <>
-            {/* Page Header */}
+            {/* ====== PAGE HEADER ====== */}
             <section className="page-header">
                 <div className="container">
                     <div className="breadcrumb">
-                        <Link href="/">Home</Link>
-                        <span>/</span>
+                        <Link href="/">
+                            <FaHome />
+                        </Link>
+                        <FaChevronRight />
                         <span>Services</span>
                     </div>
                     <h1>Our Services</h1>
                     <p>
-                        Comprehensive sanitary fittings and plumbing solutions for every need.
+                        Explore our comprehensive range of premium sanitary fittings,
+                        plumbing solutions, and hardware accessories.
                     </p>
                 </div>
             </section>
 
-            {/* Services Grid */}
-            <section className="section">
+            {/* ====== ALL CATEGORIES GRID ====== */}
+            <section className="section bg-light">
                 <div className="container">
-                    <div style={{ textAlign: "center", marginBottom: 48 }}>
-                        <span className="section-label">What We Offer</span>
-                        <h2 className="section-title">Complete Sanitary &amp; Plumbing Solutions</h2>
+                    <div style={{ textAlign: "center", marginBottom: 60 }}>
+                        <span className="section-label">Service Catalog</span>
+                        <h2 className="section-title">All Categories</h2>
                         <p className="section-subtitle" style={{ margin: "0 auto" }}>
-                            From bathroom fittings to industrial valves, we cover every aspect of plumbing and sanitary needs with
-                            genuine products and expert services.
+                            We deal in a wide variety of plumbing and construction materials
+                            from the industry&apos;s leading brands. Click on any category to view
+                            specific products.
                         </p>
                     </div>
-                    <div className="services-grid">
-                        {allServices.map((s, i) => (
-                            <div key={i} className="glass-card service-card">
-                                <div className="service-card-icon">{s.icon}</div>
-                                <h3>{s.title}</h3>
-                                <p>{s.desc}</p>
-                            </div>
+
+                    <div className="services-master-grid">
+                        {serviceCategories.map((cat, i) => (
+                            <Link
+                                href={`/services/${cat.slug}`}
+                                key={i}
+                                className="glass-card service-master-card"
+                            >
+                                <div className="service-master-image">
+                                    <img src={cat.image} alt={cat.title} />
+                                    <div className="service-master-overlay">
+                                        <span>View Category <FaArrowRight /></span>
+                                    </div>
+                                </div>
+                                <div className="service-master-content">
+                                    <h3>{cat.title}</h3>
+                                    <p>{cat.shortDesc}</p>
+                                    <div className="product-count-tag">
+                                        {cat.products.length} Products
+                                    </div>
+                                </div>
+                            </Link>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* CTA */}
-            <section className="cta-section">
-                <div className="container">
-                    <h2>Need a Specific Product or Service?</h2>
-                    <p>
-                        Can&apos;t find what you&apos;re looking for? Contact us and our expert team will help you find the right
-                        solution for your project.
+            {/* ====== CTA SECTION ====== */}
+            <section className="section section-navy">
+                <div className="container" style={{ textAlign: "center" }}>
+                    <h2 className="section-title" style={{ color: "#fff", marginBottom: 16 }}>
+                        Looking for a Wholesale Partnership?
+                    </h2>
+                    <p style={{ color: "rgba(255,255,255,0.75)", marginBottom: 32, maxWidth: 650, margin: "0 auto 32px" }}>
+                        We supply to builders, contractors, and retail shops across Rajasthan.
+                        Contact us today for competitive wholesale pricing and dedicated
+                        project support.
                     </p>
-                    <div className="cta-buttons">
-                        <a
-                            href="tel:+919983174974"
-                            className="btn btn-outline"
-                            style={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff" }}
-                        >
-                            <FaPhoneAlt /> Call Now
+                    <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+                        <a href="tel:+919983174974" className="btn btn-primary">
+                            <FaPhoneAlt /> Call +91 99831 74974
                         </a>
-                        <Link
-                            href="/contact"
-                            className="btn"
-                            style={{ background: "var(--white)", color: "var(--navy)" }}
-                        >
-                            Contact Us <FaArrowRight />
+                        <Link href="/contact" className="btn btn-outline">
+                            Special Inquiry <FaArrowRight />
                         </Link>
                     </div>
                 </div>

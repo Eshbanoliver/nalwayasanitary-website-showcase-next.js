@@ -29,6 +29,7 @@ import {
   FaTrophy,
 } from "react-icons/fa";
 import { MdPlumbing, MdKitchen } from "react-icons/md";
+import { serviceCategories } from "./data/services";
 
 /* -------  Scroll-in animation hook  ------- */
 function useAnimateOnScroll() {
@@ -80,13 +81,6 @@ function FAQItem({ q, a }: { q: string; a: string }) {
   );
 }
 
-/* -------  Data  ------- */
-const services = [
-  { image: "/service-sanitary.png", icon: <FaBath />, title: "Sanitary Fittings Supply", desc: "Wholesale supply of high-quality bathroom and sanitary fittings for residential and commercial projects." },
-  { image: "/service-parts.png", icon: <FaCubes />, title: "Bathroom Accessories", desc: "Original spare parts and accessories for premium sanitary brands." },
-  { image: "/service-plumbing.png", icon: <MdPlumbing />, title: "Plumbing Fittings Supply", desc: "Reliable plumbing fittings and components for every construction need." },
-  { image: "/service-pvc.png", icon: <FaCog />, title: "PVC Pipes Supply", desc: "Durable PVC pipes suitable for plumbing and water systems." },
-];
 
 const testimonials = [
   {
@@ -351,37 +345,36 @@ export default function HomePage() {
       </section>
 
 
-      {/* ====== SERVICES ====== */}
-      <section className="section">
+      {/* ====== SERVICES - INFINITE SCROLL ====== */}
+      <section className="section" id="services">
         <div className="container">
           <AnimateOnScroll>
             <div style={{ textAlign: "center", marginBottom: 48 }}>
               <span className="section-label">What We Offer</span>
               <h2 className="section-title">Our Services</h2>
               <p className="section-subtitle" style={{ margin: "0 auto" }}>
-                We provide a comprehensive range of sanitary fittings, plumbing products, and expert installation
-                services.
+                We provide a comprehensive range of sanitary fittings, plumbing products, hardware, and expert solutions.
               </p>
             </div>
           </AnimateOnScroll>
-          <AnimateOnScroll>
-            <div className="services-grid-modern">
-              {services.map((s, i) => (
-                <div key={i} className="glass-card service-card-modern">
-                  <div className="service-image-wrapper">
-                    <img src={s.image} alt={s.title} className="service-image" />
+          <div className="marquee-container">
+            <div className="marquee-track">
+              {[...serviceCategories, ...serviceCategories].map((cat, i) => (
+                <Link href={`/services/${cat.slug}`} key={i} className="marquee-card glass-card">
+                  <div className="marquee-card-image">
+                    <img src={cat.image} alt={cat.title} />
                   </div>
-                  <div className="service-icon-wrapper">
-                    {s.icon}
+                  <div className="marquee-card-content">
+                    <h3>{cat.title}</h3>
+                    <p>{cat.shortDesc}</p>
+                    <span className="marquee-card-link">
+                      View Products <FaArrowRight />
+                    </span>
                   </div>
-                  <div className="service-content">
-                    <h3>{s.title}</h3>
-                    <p>{s.desc}</p>
-                  </div>
-                </div>
+                </Link>
               ))}
             </div>
-          </AnimateOnScroll>
+          </div>
           <AnimateOnScroll>
             <div style={{ textAlign: "center", marginTop: 40 }}>
               <Link href="/services" className="btn btn-primary">
