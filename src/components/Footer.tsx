@@ -2,126 +2,106 @@ import Link from "next/link";
 import {
     FaInstagram,
     FaFacebookF,
+    FaLinkedinIn,
     FaPhoneAlt,
-    FaMapMarkerAlt,
-    FaEnvelope,
+    FaArrowRight,
+    FaAngleDoubleRight,
 } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <footer className="footer">
+        <footer className="footer-v3">
             <div className="container">
-                <div className="footer-grid">
-                    {/* Brand */}
-                    <div className="footer-brand">
-                        <h3>Nalwaya Fitting Suppliers</h3>
-                        <p>
-                            Your trusted source for genuine sanitary fittings, plumbing
-                            solutions, and spare parts in Udaipur. Premium brands, wholesale
-                            pricing, and expert service since 2005.
-                        </p>
-                        <div className="footer-socials">
-                            <a
-                                href="https://www.instagram.com/nalwayafitting2005"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="footer-social-link"
-                                aria-label="Instagram"
-                            >
-                                <FaInstagram />
-                            </a>
-                            <span
-                                className="footer-social-link"
-                                style={{ opacity: 0.4, cursor: "default" }}
-                                aria-label="Facebook"
-                            >
-                                <FaFacebookF />
-                            </span>
-                        </div>
-                    </div>
+                <div className="footer-top-v3">
+                    <div className="footer-grid-v3">
+                        {/* Column 1: Brand & Contact */}
+                        <div className="footer-brand-v3">
+                            <div className="footer-logo-v3">
+                                <div className="logo-icon-v3">N</div>
+                                <span>Nalwaya Fittings</span>
+                            </div>
+                            <p className="footer-desc-v3">
+                                Your trusted source for genuine sanitary fittings, plumbing
+                                solutions, and expert consultation in Udaipur since 2005.
+                            </p>
 
-                    {/* Quick Links */}
-                    <div className="footer-col">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li>
-                                <Link href="/">Home</Link>
-                            </li>
-                            <li>
-                                <Link href="/about">About Us</Link>
-                            </li>
-                            <li>
-                                <Link href="/services">Services</Link>
-                            </li>
-                            <li>
-                                <Link href="/testimonials">Testimonials</Link>
-                            </li>
-                            <li>
-                                <Link href="/contact">Contact Us</Link>
-                            </li>
-                        </ul>
-                    </div>
+                            <div className="footer-phone-big-v3">
+                                <div className="phone-icon-v3">
+                                    <FaPhoneAlt />
+                                </div>
+                                <div className="phone-info-v3">
+                                    <a href="tel:+919983174974">+91 99831 74974</a>
+                                    <span>Call 24/7 Service</span>
+                                </div>
+                            </div>
 
-                    {/* Services */}
-                    <div className="footer-col">
-                        <h4>Our Services</h4>
-                        <ul>
-                            <li>
-                                <Link href="/services">Sanitary Fittings</Link>
-                            </li>
-                            <li>
-                                <Link href="/services">Plumbing Fittings</Link>
-                            </li>
-                            <li>
-                                <Link href="/services">PVC Pipes</Link>
-                            </li>
-                            <li>
-                                <Link href="/services">Kitchen Sinks</Link>
-                            </li>
-                            <li>
-                                <Link href="/services">Water Tanks</Link>
-                            </li>
-                            <li>
-                                <Link href="/services">Industrial Valves</Link>
-                            </li>
-                        </ul>
-                    </div>
+                            <div className="footer-socials-v3">
+                                <span className="follow-text">Follow On:</span>
+                                <div className="social-links-v3">
+                                    <a href="#" className="social-btn-v3"><FaFacebookF /></a>
+                                    <a href="#" className="social-btn-v3"><FaLinkedinIn /></a>
+                                    <a href="https://www.instagram.com/nalwayafitting2005" target="_blank" className="social-btn-v3"><FaInstagram /></a>
+                                </div>
+                            </div>
+                        </div>
 
-                    {/* Contact */}
-                    <div className="footer-col">
-                        <h4>Contact Us</h4>
-                        <div className="footer-contact-item">
-                            <FaMapMarkerAlt className="footer-contact-icon" />
-                            <span>
-                                Meera Nagar, B-Block, 60 Feet Road, Near PIMS Hospital,
-                                Udaipur&nbsp;–&nbsp;313001, Rajasthan
-                            </span>
+                        {/* Column 2: Useful Links (Double Column) */}
+                        <div className="footer-links-v3">
+                            <h4 className="footer-title-v3">Useful Links</h4>
+                            <div className="title-divider-v3"></div>
+
+                            <div className="links-subgrid-v3">
+                                <ul className="footer-link-list-v3">
+                                    <li><Link href="/"><FaAngleDoubleRight /> Home</Link></li>
+                                    <li><Link href="/about"><FaAngleDoubleRight /> About Us</Link></li>
+                                    <li><Link href="/contact"><FaAngleDoubleRight /> Contact Us</Link></li>
+                                    <li><Link href="/services"><FaAngleDoubleRight /> All Products</Link></li>
+                                    <li><Link href="/testimonials"><FaAngleDoubleRight /> Reviews</Link></li>
+                                </ul>
+                                <ul className="footer-link-list-v3">
+                                    <li><Link href="/services"><FaAngleDoubleRight /> Sanitary Fittings</Link></li>
+                                    <li><Link href="/services"><FaAngleDoubleRight /> Plumbing Work</Link></li>
+                                    <li><Link href="/services"><FaAngleDoubleRight /> PVC Pipes</Link></li>
+                                    <li><Link href="/services"><FaAngleDoubleRight /> Water Tanks</Link></li>
+                                    <li><Link href="/services"><FaAngleDoubleRight /> Industrial Valves</Link></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div className="footer-contact-item">
-                            <FaPhoneAlt className="footer-contact-icon" />
-                            <a href="tel:+919983174974">+91 99831 74974</a>
-                        </div>
-                        <div className="footer-contact-item">
-                            <FaEnvelope className="footer-contact-icon" />
-                            <span>info@nalwayafittings.com</span>
+
+                        {/* Column 3: Gallery/Instagram */}
+                        <div className="footer-gallery-v3">
+                            <h4 className="footer-title-v3">Our Gallery</h4>
+                            <div className="title-divider-v3"></div>
+
+                            <div className="gallery-grid-v3">
+                                <div className="gallery-item-v3"><img src="/gallery/product1.png" alt="Product" /></div>
+                                <div className="gallery-item-v3"><img src="/gallery/product2.png" alt="Product" /></div>
+                                <div className="gallery-item-v3"><img src="/gallery/product3.png" alt="Product" /></div>
+                                <div className="gallery-item-v3"><img src="/gallery/product4.png" alt="Product" /></div>
+                                <div className="gallery-item-v3"><img src="/gallery/product5.png" alt="Product" /></div>
+                                <div className="gallery-item-v3"><img src="/gallery/product6.png" alt="Product" /></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="footer-bottom">
+            <div className="footer-bottom-v3">
+                <div className="bottom-slanted-bg-v3"></div>
                 <div className="container">
-                    ©️ Copyright 2026 | Nalwaya Fitting Suppliers | All Rights Reserved |
-                    Powered by{" "}
-                    <a
-                        href="https://shapesway.in"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ color: "#28a745" }}
-                    >
-                        Shapesway Technologies Pvt. Ltd.
-                    </a>
-                    .
+                    <div className="bottom-content-v3">
+                        <div className="copyright-v3" style={{ width: '100%', textAlign: 'center' }}>
+                            ©️ Copyright 2026 | <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Nalwaya Fitting Suppliers</Link> | All Rights Reserved | Powered by{" "}
+                            <a
+                                href="https://shapesway.in"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: "#28a745", textDecoration: 'none' }}
+                            >
+                                Shapesway Technologies Pvt. Ltd.
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>
