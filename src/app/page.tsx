@@ -249,35 +249,60 @@ export default function HomePage() {
       </section>
 
 
-      {/* ====== ABOUT SNIPPET ====== */}
-      <section className="section">
+      {/* ====== MODERN ABOUT US ====== */}
+      <section className="about-modern-section">
+        <div className="container" style={{ textAlign: 'center', marginBottom: '60px' }}>
+          <h2 className="section-title">About Us</h2>
+          <div style={{ width: '60px', height: '3px', background: 'var(--teal)', margin: '0 auto' }}></div>
+        </div>
+
         <div className="container">
+          {/* Row 1 */}
           <AnimateOnScroll>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
-              <div>
-                <span className="section-label">About Us</span>
-                <h2 className="section-title">Your Trusted Partner for Sanitary &amp; Plumbing Solutions</h2>
-                <p className="section-subtitle" style={{ maxWidth: "none" }}>
-                  <strong>Nalwaya Fitting Suppliers</strong> is a trusted sanitary fittings and plumbing solutions provider
-                  in Udaipur known for supplying genuine spare parts and premium-quality plumbing products. With years of
-                  experience in the industry, we have built a strong reputation for delivering reliable products, wholesale
-                  pricing, and expert plumbing solutions to residential, commercial, and hospitality clients.
-                </p>
-                <p className="section-subtitle" style={{ maxWidth: "none", marginTop: 16 }}>
-                  We specialize in supplying spare parts and sanitary fittings from globally trusted brands while also
-                  providing expert plumbing and sanitary installation services.
-                </p>
-                <Link href="/about" className="btn btn-primary" style={{ marginTop: 32 }}>
-                  Learn More <FaArrowRight />
-                </Link>
+            <div className="about-row">
+              <div className="about-card-modern blue">
+                <div className="about-card-image">
+                  <img src="/about-1.png" alt="Sanitary Solutions" />
+                </div>
+                <div className="about-card-text">
+                  <h3>Your Trusted Partner for Sanitary & Plumbing</h3>
+                  <p>
+                    Nalwaya Fitting Suppliers lead the industry in providing high-quality bathroom
+                    and sanitary fittings for residential and hospitality projects across Rajasthan.
+                  </p>
+                </div>
               </div>
-              <div className="about-image-placeholder">
-                <FaBath className="about-image-icon" />
+              <div className="about-cta-modern">
+                <p>Explore detailed information about our premium product range and history.</p>
+                <Link href="/about" className="btn-modern-outline">View More</Link>
+              </div>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Row 2 */}
+          <AnimateOnScroll>
+            <div className="about-row reverse">
+              <div className="about-card-modern dark">
+                <div className="about-card-text">
+                  <h3>Wholesale Supplier of Premium Hardware</h3>
+                  <p>
+                    Specializing in genuine spare parts and high-durability plumbing components.
+                    We bridge the gap between global brands and your local construction needs.
+                  </p>
+                </div>
+                <div className="about-card-image">
+                  <img src="/about-2.png" alt="Hardware Fittings" />
+                </div>
+              </div>
+              <div className="about-cta-modern">
+                <p>Check out our competitive wholesale pricing and bulk supply options.</p>
+                <Link href="/contact" className="btn-modern-outline">Get Price</Link>
               </div>
             </div>
           </AnimateOnScroll>
         </div>
       </section>
+
 
       {/* ====== METRICS ====== */}
       <section className="section section-alt">

@@ -85,9 +85,6 @@ export default function Navbar() {
 
                 {/* Right Call/Search Section */}
                 <div className="header-call-section">
-                    <div className="search-icon" style={{ cursor: 'pointer', fontSize: '1.2rem', color: 'var(--navy)', marginRight: '20px' }}>
-                        <FiSearch />
-                    </div>
                     <a href="tel:+919983174974">
                         <div className="call-icon-circle">
                             <FiPhone />
@@ -103,7 +100,7 @@ export default function Navbar() {
                 <button
                     className={`nav-toggle ${mobileOpen ? "open" : ""}`}
                     onClick={() => setMobileOpen(!mobileOpen)}
-                    style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)', display: 'none' }}
+                    aria-label="Toggle Navigation"
                 >
                     <span />
                     <span />
@@ -111,8 +108,15 @@ export default function Navbar() {
                 </button>
             </div>
 
+            {/* Mobile Overlay */}
+            <div
+                className={`mobile-nav-overlay ${mobileOpen ? "open" : ""}`}
+                onClick={() => setMobileOpen(false)}
+                style={{ zIndex: 1040 }}
+            />
+
             {/* Mobile Navigation */}
-            <div className={`mobile-nav ${mobileOpen ? "open" : ""}`}>
+            <div className={`mobile-nav ${mobileOpen ? "open" : ""}`} style={{ zIndex: 1050 }}>
                 {navLinks.map((link) => (
                     <Link
                         key={link.href}
@@ -126,4 +130,5 @@ export default function Navbar() {
         </header>
     );
 }
+
 
