@@ -182,6 +182,49 @@ img {
   color: rgba(255, 255, 255, 0.75);
 }
 
+.section-boxed-bg {
+  position: relative;
+  background: transparent !important;
+  z-index: 1;
+}
+
+.section-boxed-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 80px;
+  right: 80px;
+  background: linear-gradient(rgba(26, 38, 52, 0.5), rgba(26, 38, 52, 0.8)), url('/service-plumbing.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+  border-radius: 80px;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-boxed-bg .container {
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .section-boxed-bg::before {
+    left: 30px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-boxed-bg::before {
+    left: 15px;
+    right: 15px;
+    border-radius: 30px;
+  }
+}
+
 /* ========================
    GLASS EFFECTS
    ======================== */

@@ -511,7 +511,7 @@ export default function HomePage() {
       </section>
 
       {/* ====== WHY CHOOSE US ====== */}
-      <section className="section section-navy">
+      <section className="section section-navy section-boxed-bg">
         <div className="container">
           <AnimateOnScroll>
             <div style={{ textAlign: "center", marginBottom: 48 }}>
