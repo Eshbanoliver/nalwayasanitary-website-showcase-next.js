@@ -1283,40 +1283,175 @@ img {
 /* ========================
    CORE VALUES
    ======================== */
-.values-grid {
+/* ========================
+   CORE VALUES (PREMIUM CARDS)
+   ======================== */
+.premium-values-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 30px;
 }
 
-.value-card {
-  text-align: center;
-  padding: 36px 24px;
+.premium-value-card-v2 {
+  position: relative;
+  padding: 45px 35px;
+  border-radius: 28px;
+  background: var(--card-gradient);
+  color: var(--white) !important;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  min-height: 320px;
+  text-align: left;
 }
 
-.value-icon {
-  width: 56px;
-  height: 56px;
+.premium-value-card-v2:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.2);
+}
+
+.premium-value-card-v2::before {
+  content: '✻';
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 1.8rem;
+  opacity: 0.6;
+  font-weight: 300;
+  transition: transform 0.8s ease;
+  color: #fff;
+}
+
+.premium-value-card-v2:hover::before {
+  transform: rotate(180deg) scale(1.2);
+  opacity: 1;
+}
+
+.premium-value-card-v2 .value-icon-v3 {
+  font-size: 3.2rem;
+  margin-bottom: 30px;
+  color: var(--white) !important;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: transform 0.4s ease;
+}
+
+.premium-value-card-v2:hover .value-icon-v3 {
+  transform: scale(1.15) rotate(-5deg);
+}
+
+.premium-value-card-v2 h4 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--white) !important;
+  line-height: 1.25;
+}
+
+.premium-value-card-v2 p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85) !important;
+  margin-bottom: 35px;
+  flex: 1;
+}
+
+.value-cta-v2 {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-  background: linear-gradient(135deg, rgba(86, 124, 141, 0.08), rgba(200, 217, 230, 0.25));
-  border-radius: var(--radius-md);
-  color: var(--teal);
-  font-size: 1.3rem;
+  gap: 12px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--white) !important;
+  opacity: 0.9;
+  transition: all 0.3s ease;
 }
 
-.value-card h4 {
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 8px;
+.value-cta-v2 svg {
+  transition: transform 0.3s ease;
 }
 
-.value-card p {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+.premium-value-card-v2:hover .value-cta-v2 {
+  opacity: 1;
+  gap: 16px;
+}
+
+.premium-value-card-v2:hover .value-cta-v2 svg {
+  transform: translateX(4px);
+}
+
+/* Color Variations */
+.premium-value-card-v2:nth-child(1) {
+  --card-gradient: linear-gradient(135deg, #A855F7 0%, #EC4899 100%);
+}
+
+/* Purple/Pink */
+.premium-value-card-v2:nth-child(2) {
+  --card-gradient: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%);
+}
+
+/* Cyan/Blue */
+.premium-value-card-v2:nth-child(3) {
+  --card-gradient: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+}
+
+/* Orange/Red */
+.premium-value-card-v2:nth-child(4) {
+  --card-gradient: linear-gradient(135deg, #10B981 0%, #059669 100%);
+}
+
+/* Green */
+.premium-value-card-v2:nth-child(5) {
+  --card-gradient: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+}
+
+/* Indigo */
+.premium-value-card-v2:nth-child(6) {
+  --card-gradient: linear-gradient(135deg, #F43F5E 0%, #BE123C 100%);
+}
+
+/* Rose */
+
+@media (max-width: 1024px) {
+  .premium-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .premium-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .premium-value-card-v2 {
+    min-height: auto;
+    padding: 35px 25px;
+  }
+}
+
+
+
+
+
+@media (max-width: 1024px) {
+  .premium-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .premium-values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .premium-value-card-v2 {
+    min-height: auto;
+    padding: 35px 25px;
+  }
 }
 
 /* ========================

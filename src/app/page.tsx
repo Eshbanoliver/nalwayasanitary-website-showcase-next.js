@@ -494,12 +494,15 @@ export default function HomePage() {
             </div>
           </AnimateOnScroll>
           <AnimateOnScroll>
-            <div className="values-grid">
+            <div className="premium-values-grid">
               {coreValues.map((v, i) => (
-                <div key={i} className="glass-card value-card">
-                  <div className="value-icon">{v.icon}</div>
+                <div key={i} className="premium-value-card-v2">
+                  <div className="value-icon-v3">{v.icon}</div>
                   <h4>{v.title}</h4>
                   <p>{v.desc}</p>
+                  <div className="value-cta-v2">
+                    Learn More <FaArrowRight />
+                  </div>
                 </div>
               ))}
             </div>
