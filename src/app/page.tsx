@@ -139,56 +139,115 @@ const whyChoose = [
 
 /* -------  COMPONENT  ------- */
 export default function HomePage() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = ["/hero-1.png", "/hero-2.png", "/hero-3.png"];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <>
-      {/* ====== HERO ====== */}
-      <section className="hero">
-        <div className="hero-bg-shapes">
-          <div className="hero-shape hero-shape-1" />
-          <div className="hero-shape hero-shape-2" />
-          <div className="hero-shape hero-shape-3" />
+      {/* ====== MODERN HERO SLIDER ====== */}
+      <section className="hero-modern">
+        <div className="hero-modern-bg">
+          {slides.map((slide, index) => (
+            <img
+              key={index}
+              src={slide}
+              alt={`Slide ${index + 1}`}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                opacity: currentSlide === index ? 1 : 0,
+                transition: 'opacity 1s ease-in-out'
+              }}
+            />
+          ))}
         </div>
         <div className="container">
-          <div className="hero-content">
-            <div className="hero-badge">
-              <span className="hero-badge-dot" />
-              Trusted Since 2005
+          <AnimateOnScroll>
+            <div className="hero-badge-modern">
+              <FaTools /> Trusted Hardware &amp; Fitting Supplier
             </div>
-            <h1>
-              Premium Sanitary &amp; <span>Plumbing Fittings</span> Supplier in Udaipur
+            <h1 className="hero-title-modern">
+              Premium <span>Sanitary &amp; Plumbing</span> Solutions
             </h1>
-            <p className="hero-desc">
-              Genuine spare parts, wholesale pricing, and expert plumbing solutions for homes,
-              hotels, and commercial projects across Rajasthan.
+            <p className="hero-subtitle-modern">
+              Your trusted partner for genuine fittings, wholesale pricing, and expert plumbing services in Udaipur since 2005.
             </p>
-            <div className="hero-buttons">
-              <a href="tel:+919983174974" className="btn btn-primary">
-                <FaPhoneAlt /> Call Now
-              </a>
-              <Link href="/services" className="btn btn-secondary">
-                Explore Services <FaArrowRight />
+            <div className="hero-actions-modern">
+              <Link href="/services" className="btn btn-primary">
+                Explore Products <FaArrowRight />
               </Link>
-              <Link href="/contact" className="btn btn-secondary">
-                Contact Us
-              </Link>
-            </div>
-            <div className="hero-stats">
-              <div className="hero-stat">
-                <div className="hero-stat-number">20+</div>
-                <div className="hero-stat-label">Years Experience</div>
-              </div>
-              <div className="hero-stat">
-                <div className="hero-stat-number">1000+</div>
-                <div className="hero-stat-label">Happy Customers</div>
-              </div>
-              <div className="hero-stat">
-                <div className="hero-stat-number">50+</div>
-                <div className="hero-stat-label">Product Categories</div>
+              <div className="btn-play">
+                <FaPhoneAlt />
               </div>
             </div>
-          </div>
+            {/* Slider Dots */}
+            <div className="slider-dots" style={{ display: 'flex', gap: '10px', marginTop: '40px' }}>
+              {slides.map((_, index) => (
+                <div
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  style={{
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '50%',
+                    background: currentSlide === index ? 'var(--teal-light)' : 'rgba(255,255,255,0.3)',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}
+                />
+              ))}
+            </div>
+          </AnimateOnScroll>
         </div>
       </section>
+
+
+      {/* ====== FEATURES OVERLAP ====== */}
+      <section className="features-overlap">
+        <div className="container">
+          <AnimateOnScroll>
+            <div className="features-grid-modern">
+              <div className="feature-card-modern">
+                <div className="feature-icon-modern">
+                  <FaBath />
+                </div>
+                <h3>Sanitary Fittings</h3>
+                <p>Premium bathroom and sanitary fittings from top global brands.</p>
+              </div>
+              <div className="feature-card-modern">
+                <div className="feature-icon-modern">
+                  <MdPlumbing />
+                </div>
+                <h3>Plumbing Solutions</h3>
+                <p>Expert plumbing installation and maintenance for all projects.</p>
+              </div>
+              <div className="feature-card-modern">
+                <div className="feature-icon-modern">
+                  <FaTools />
+                </div>
+                <h3>Genuine Spares</h3>
+                <p>100% authentic spare parts for all your plumbing needs.</p>
+              </div>
+              <div className="feature-card-modern">
+                <div className="feature-icon-modern">
+                  <FaSmile />
+                </div>
+                <h3>Reliable Service</h3>
+                <p>Trusted by thousands of happy customers in Rajasthan.</p>
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
 
       {/* ====== ABOUT SNIPPET ====== */}
       <section className="section">

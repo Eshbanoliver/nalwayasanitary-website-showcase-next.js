@@ -3,33 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { FiPhone, FiMenu } from "react-icons/fi";
-import {
-    FaHome,
-    FaInfoCircle,
-    FaCogs,
-    FaStar,
-    FaEnvelope,
-} from "react-icons/fa";
+import { FiPhone, FiMenu, FiSearch, FiMail, FiClock } from "react-icons/fi";
+import { FaFacebookF, FaLinkedinIn, FaInstagram, FaGlobe } from "react-icons/fa";
 
 const navLinks = [
-    { href: "/", label: "Home", icon: <FaHome /> },
-    { href: "/about", label: "About Us", icon: <FaInfoCircle /> },
-    { href: "/services", label: "Services", icon: <FaCogs /> },
-    { href: "/testimonials", label: "Testimonials", icon: <FaStar /> },
-    { href: "/contact", label: "Contact Us", icon: <FaEnvelope /> },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About Us" },
+    { href: "/services", label: "Service" },
+    { href: "/testimonials", label: "Testimonials" },
+    { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
     const pathname = usePathname();
-    const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 40);
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     useEffect(() => {
         setMobileOpen(false);
@@ -43,17 +30,46 @@ export default function Navbar() {
     }, [mobileOpen]);
 
     return (
-        <>
-            <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+        <header className="header-main">
+            {/* Top Bar */}
+            <div className="top-bar">
                 <div className="container">
+                    <div className="top-bar-info">
+                        <div className="top-bar-item">
+                            <FiMail />
+                            <span>info@nalwayafittings.com</span>
+                        </div>
+                        <div className="top-bar-item">
+                            <FiClock />
+                            <span>Mon - Sat 9:00 AM - 7:00 PM</span>
+                        </div>
+                    </div>
+                    <div className="top-bar-social">
+                        <span>Follow Us On :</span>
+                        <a href="#"><FaFacebookF /></a>
+                        <a href="#"><FaLinkedinIn /></a>
+                        <a href="#"><FaInstagram /></a>
+                    </div>
+                </div>
+            </div>
+
+            {/* Main Header */}
+            <div className="header-wrapper">
+                {/* Logo Section */}
+                <div className="header-logo-section">
                     <Link href="/" className="nav-logo">
-                        <span className="nav-logo-icon">NF</span>
-                        <span>
+                        <div className="call-icon-circle" style={{ width: 45, height: 45, background: 'linear-gradient(135deg, var(--navy), var(--teal))' }}>
+                            <FaGlobe />
+                        </div>
+                        <span style={{ fontSize: '1.5rem', fontWeight: 800 }}>
                             Nalwaya <span style={{ color: "var(--teal)" }}>Fittings</span>
                         </span>
                     </Link>
+                </div>
 
-                    <ul className="nav-links">
+                {/* Navigation Section */}
+                <div className="header-nav-section">
+                    <ul className="nav-links-modern">
                         {navLinks.map((link) => (
                             <li key={link.href}>
                                 <Link
@@ -65,31 +81,35 @@ export default function Navbar() {
                             </li>
                         ))}
                     </ul>
-
-                    <div className="nav-cta">
-                        <a href="tel:+919983174974" className="btn btn-primary btn-sm">
-                            <FiPhone />
-                            Call Now
-                        </a>
-                    </div>
-
-                    <button
-                        className={`nav-toggle ${mobileOpen ? "open" : ""}`}
-                        onClick={() => setMobileOpen(!mobileOpen)}
-                        aria-label="Toggle navigation"
-                    >
-                        <span />
-                        <span />
-                        <span />
-                    </button>
                 </div>
-            </nav>
 
-            {/* Mobile Overlay */}
-            <div
-                className={`mobile-nav-overlay ${mobileOpen ? "open" : ""}`}
-                onClick={() => setMobileOpen(false)}
-            />
+                {/* Right Call/Search Section */}
+                <div className="header-call-section">
+                    <div className="search-icon" style={{ cursor: 'pointer', fontSize: '1.2rem', color: 'var(--navy)', marginRight: '20px' }}>
+                        <FiSearch />
+                    </div>
+                    <a href="tel:+919983174974">
+                        <div className="call-icon-circle">
+                            <FiPhone />
+                        </div>
+                        <div className="call-text">
+                            <span>Call Helpline</span>
+                            <span>+91 99831 74974</span>
+                        </div>
+                    </a>
+                </div>
+
+                {/* Mobile Toggle */}
+                <button
+                    className={`nav-toggle ${mobileOpen ? "open" : ""}`}
+                    onClick={() => setMobileOpen(!mobileOpen)}
+                    style={{ position: 'absolute', right: '20px', top: '50%', transform: 'translateY(-50%)', display: 'none' }}
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
+            </div>
 
             {/* Mobile Navigation */}
             <div className={`mobile-nav ${mobileOpen ? "open" : ""}`}>
@@ -99,21 +119,11 @@ export default function Navbar() {
                         href={link.href}
                         className={pathname === link.href ? "active" : ""}
                     >
-                        {link.icon}
                         {link.label}
                     </Link>
                 ))}
-                <div style={{ marginTop: "24px" }}>
-                    <a
-                        href="tel:+919983174974"
-                        className="btn btn-primary"
-                        style={{ width: "100%", justifyContent: "center" }}
-                    >
-                        <FiPhone />
-                        Call Now
-                    </a>
-                </div>
             </div>
-        </>
+        </header>
     );
 }
+
