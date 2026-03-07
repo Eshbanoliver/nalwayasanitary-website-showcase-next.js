@@ -5092,6 +5092,8 @@ body {
   clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
   z-index: 4;
   transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .card-yellow .read-more-accent {

@@ -338,7 +338,7 @@ export default function HomePage() {
                   <h3>{m.value}</h3>
                   <div className="metric-title">{m.title}</div>
                   <p className="metric-desc">{m.desc}</p>
-                  <div className="read-more-accent">Read More</div>
+                  <Link href="/services" className="read-more-accent">Read More</Link>
                 </div>
               ))}
             </div>
