@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FiPhone, FiMenu, FiSearch, FiMail, FiClock } from "react-icons/fi";
-import { FaFacebookF, FaLinkedinIn, FaInstagram, FaGlobe } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
 
 const navLinks = [
     { href: "/", label: "Home" },
@@ -46,9 +46,7 @@ export default function Navbar() {
                     </div>
                     <div className="top-bar-social">
                         <span>Follow Us On :</span>
-                        <a href="#"><FaFacebookF /></a>
-                        <a href="#"><FaLinkedinIn /></a>
-                        <a href="#"><FaInstagram /></a>
+                        <a href="https://www.instagram.com/nalwayafitting2005" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
                     </div>
                 </div>
             </div>

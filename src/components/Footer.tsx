@@ -1,8 +1,6 @@
 import Link from "next/link";
 import {
     FaInstagram,
-    FaFacebookF,
-    FaLinkedinIn,
     FaPhoneAlt,
     FaArrowRight,
     FaAngleDoubleRight,
@@ -42,9 +40,7 @@ export default function Footer() {
                             <div className="footer-socials-v3">
                                 <span className="follow-text">Follow On:</span>
                                 <div className="social-links-v3">
-                                    <a href="#" className="social-btn-v3"><FaFacebookF /></a>
-                                    <a href="#" className="social-btn-v3"><FaLinkedinIn /></a>
-                                    <a href="https://www.instagram.com/nalwayafitting2005" target="_blank" className="social-btn-v3"><FaInstagram /></a>
+                                    <a href="https://www.instagram.com/nalwayafitting2005" target="_blank" rel="noopener noreferrer" className="social-btn-v3"><FaInstagram /></a>
                                 </div>
                             </div>
                         </div>
