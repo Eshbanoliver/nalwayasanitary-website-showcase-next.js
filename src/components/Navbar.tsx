@@ -45,9 +45,11 @@ function MegaMenu() {
 export default function Navbar() {
     const pathname = usePathname();
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [mobileMegaOpen, setMobileMegaOpen] = useState(false);
 
     useEffect(() => {
         setMobileOpen(false);
+        setMobileMegaOpen(false);
     }, [pathname]);
 
     useEffect(() => {
@@ -148,13 +150,37 @@ export default function Navbar() {
             {/* Mobile Navigation */}
             <div className={`mobile-nav ${mobileOpen ? "open" : ""}`} style={{ zIndex: 1050 }}>
                 {navLinks.map((link) => (
-                    <Link
-                        key={link.href}
-                        href={link.href}
-                        className={pathname === link.href ? "active" : ""}
-                    >
-                        {link.label}
-                    </Link>
+                    <div key={link.href} className="mobile-nav-item-wrapper">
+                        {link.hasMega ? (
+                            <>
+                                <div
+                                    className={`mobile-nav-link ${pathname === link.href ? "active" : ""}`}
+                                    onClick={() => setMobileMegaOpen(!mobileMegaOpen)}
+                                    style={{ display: "flex", justifyContent: "space-between", cursor: "pointer" }}
+                                >
+                                    <span>{link.label}</span>
+                                    <FaChevronDown style={{ transform: mobileMegaOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "0.3s" }} />
+                                </div>
+                                <div className={`mobile-mega-menu ${mobileMegaOpen ? "open" : ""}`}>
+                                    {serviceCategories.map(cat => (
+                                        <Link key={cat.slug} href={`/services/${cat.slug}`} className="mobile-mega-item">
+                                            {cat.title}
+                                        </Link>
+                                    ))}
+                                    <Link href="/services" className="mobile-mega-item view-all">
+                                        View All Categories &rarr;
+                                    </Link>
+                                </div>
+                            </>
+                        ) : (
+                            <Link
+                                href={link.href}
+                                className={`mobile-nav-link ${pathname === link.href ? "active" : ""}`}
+                            >
+                                {link.label}
+                            </Link>
+                        )}
+                    </div>
                 ))}
             </div>
         </header>
