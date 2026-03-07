@@ -7322,19 +7322,20 @@ body {
 
   /* -- Floating Buttons -- */
   .floating-left {
-    left: 12px;
-    bottom: 16px;
+    left: 15px;
+    bottom: 20px;
   }
 
   .floating-right {
-    right: 12px;
-    bottom: 16px;
+    right: 15px;
+    bottom: 20px;
   }
 
   .floating-btn {
-    width: 44px;
-    height: 44px;
-    font-size: 1.05rem;
+    width: 55px;
+    height: 55px;
+    font-size: 1.35rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   }
 
   /* -- Why Choose Us Grid (v2 layout in hero overlap area) -- */
