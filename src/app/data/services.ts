@@ -7,12 +7,21 @@ export interface Product {
     desc: string;
 }
 
+export interface FAQ {
+    question: string;
+    answer: string;
+}
+
 export interface ServiceCategory {
     slug: string;
     title: string;
     shortDesc: string;
+    longDesc?: string;
+    keyPoints?: string[];
     image: string;
+    galleryImages?: string[];
     products: Product[];
+    faqs?: FAQ[];
 }
 
 export const serviceCategories: ServiceCategory[] = [
@@ -20,7 +29,27 @@ export const serviceCategories: ServiceCategory[] = [
         slug: "pipes-and-tanks",
         title: "Pipes & Tanks",
         shortDesc: "PVC, CPVC, UPVC, PPR pipes and water storage tanks.",
+        longDesc: "At Nalwaya Fitting Suppliers, we offer a specialized range of high-performance piping and storage solutions. Our selection includes everything from extreme-durability CPVC for hot water systems to heavy-duty underground storage tanks. We are authorized dealers for top brands, ensuring that every pipe and tank you purchase meets or exceeds national quality standards for safe and efficient water management.",
+        keyPoints: [
+            "UV Resistant Water Storage",
+            "Lead-Free Piping Systems",
+            "High Pressure Endurance",
+            "Bacterial Growth Prevention",
+            "Seamless Joint Technology"
+        ],
+        faqs: [
+            { question: "Which pipe is best for hot water?", answer: "CPVC (Chlorinated Polyvinyl Chloride) is specifically designed to handle high temperatures and is the industry standard for hot water supply." },
+            { question: "What sizes of tanks are available?", answer: "We stock tanks ranging from 500 liters to 5000 liters in both overhead and underground variants." },
+            { question: "Are these pipes UV protected?", answer: "Yes, our exterior-grade pipes and all our water tanks feature advanced UV stabilization to prevent brittleness in sunlight." },
+            { question: "What is the life expectancy?", answer: "Our premium piping systems are designed to last over 50 years under standard operating conditions." },
+            { question: "Do you deliver to site?", answer: "Yes, we provide site-delivery services across Udaipur and surrounding regions for bulk orders." }
+        ],
         image: "/cat-pipes-tanks.png",
+        galleryImages: [
+            "/gallery-pipes-1.png",
+            "/gallery-pipes-2.png",
+            "/gallery-pipes-3.png"
+        ],
         products: [
             { name: "PVC Pipes", desc: "Rigid PVC pipes for cold water plumbing, drainage, and irrigation systems." },
             { name: "CPVC Pipes", desc: "Chlorinated PVC pipes suitable for hot and cold water supply lines." },
