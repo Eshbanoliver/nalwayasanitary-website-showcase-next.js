@@ -78,7 +78,8 @@ export default function AboutPage() {
             <section className="section">
                 <div className="container">
                     <div className="about-overview">
-                        <div>
+                        <div className="about-decorative-blob"></div>
+                        <div className="about-text-column">
                             <span className="section-label">Our Story</span>
                             <h2 className="section-title">
                                 A Legacy of Trust &amp; Quality
@@ -104,46 +105,80 @@ export default function AboutPage() {
                                 providing expert plumbing and sanitary installation services. Customers trust us for authentic products,
                                 durable fittings, and professional service support.
                             </p>
+                            <div style={{ marginTop: 32 }}>
+                                <Link href="/contact" className="btn btn-primary">
+                                    Get a Quote <FaHandshake />
+                                </Link>
+                            </div>
                         </div>
-                        <div className="about-image-placeholder">
-                            <FaGem
-                                style={{ fontSize: "4rem", color: "var(--teal)", opacity: 0.5 }}
-                            />
+                        <div className="about-image-column">
+                            <div className="about-image-creative-wrapper">
+                                <div className="about-img-accent-border"></div>
+                                <img
+                                    src="/about-story.png"
+                                    alt="Our Showroom"
+                                    className="about-main-img-v3"
+                                />
+                                <div className="floating-experience-badge">
+                                    <span>20+</span>
+                                    <span>Years of Trust</span>
+                                </div>
+                                <div className="about-glass-stat">
+                                    <div className="stat-item">
+                                        <FaGem style={{ color: "var(--teal)" }} />
+                                        <span>Genuine Spares</span>
+                                    </div>
+                                    <div className="stat-item">
+                                        <FaAward style={{ color: "var(--cherry-red)" }} />
+                                        <span>Premium Quality</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Experience & Metrics */}
-            <section className="section section-alt">
+            {/* ====== FANCY METRICS (Imported from Home) ====== */}
+            <section className="metrics-section-v2" style={{ padding: '100px 0', background: '#fdfdfd' }}>
                 <div className="container">
-                    <div style={{ textAlign: "center", marginBottom: 48 }}>
-                        <span className="section-label">Experience</span>
-                        <h2 className="section-title">
-                            Two Decades of Industry Excellence
-                        </h2>
-                        <p className="section-subtitle" style={{ margin: "0 auto" }}>
-                            Our numbers speak for our dedication and customer trust.
-                        </p>
-                    </div>
-                    <div className="metrics-grid">
+                    <div className="metrics-row-v2">
                         {[
                             {
                                 icon: <FaAward />,
                                 value: "20+",
-                                label: "Years of Industry Experience",
+                                title: "Experience",
+                                desc: "Two decades of proven excellence and trusted service in the Udaipur market.",
+                                color: "card-blue"
                             },
-                            { icon: <FaUsers />, value: "1000+", label: "Happy Customers" },
-                            { icon: <FaBoxes />, value: "50+", label: "Product Categories" },
-                            { icon: <FaTags />, value: "10+", label: "Premium Brands Available" },
-                        ].map((item, idx) => (
-                            <div key={idx} className="metric-card">
-                                <div className="metric-icon-wrapper">
-                                    <div className="metric-icon-bg"></div>
-                                    <div className="metric-icon">{item.icon}</div>
-                                </div>
-                                <div className="metric-number">{item.value}</div>
-                                <div className="metric-label">{item.label}</div>
+                            {
+                                icon: <FaUsers />,
+                                value: "1000+",
+                                title: "Customers",
+                                desc: "Vast network of happy homeowners and professional contractors across Rajasthan.",
+                                color: "card-yellow"
+                            },
+                            {
+                                icon: <FaBoxes />,
+                                value: "50+",
+                                title: "Categories",
+                                desc: "Comprehensive range of sanitary and plumbing parts available under one roof.",
+                                color: "card-teal"
+                            },
+                            {
+                                icon: <FaTags />,
+                                value: "10+",
+                                title: "Brands",
+                                desc: "Authorized supplier for globally recognized premium brands like Jaquar and Cera.",
+                                color: "card-red"
+                            },
+                        ].map((m, i) => (
+                            <div key={i} className={`metric-card-v2 ${m.color}`}>
+                                <div className="metric-icon-v2">{m.icon}</div>
+                                <h3>{m.value}</h3>
+                                <div className="metric-title">{m.title}</div>
+                                <p className="metric-desc">{m.desc}</p>
+                                <div className="read-more-accent">Read More</div>
                             </div>
                         ))}
                     </div>
