@@ -500,9 +500,9 @@ export default function HomePage() {
                   <div className="value-icon-v3">{v.icon}</div>
                   <h4>{v.title}</h4>
                   <p>{v.desc}</p>
-                  <div className="value-cta-v2">
+                  <Link href="/about" className="value-cta-v2">
                     Learn More <FaArrowRight />
-                  </div>
+                  </Link>
                 </div>
               ))}
             </div>

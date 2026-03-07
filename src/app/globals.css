@@ -1490,6 +1490,8 @@ img {
   color: var(--white) !important;
   opacity: 0.9;
   transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .value-cta-v2 svg {
