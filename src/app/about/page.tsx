@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import BrandsGrid from "@/components/BrandsGrid";
+import PremiumCTA from "@/components/PremiumCTA";
 import {
     FaCheckCircle,
     FaAward,
@@ -251,30 +252,7 @@ export default function AboutPage() {
             </section>
 
             {/* CTA */}
-            <section className="cta-section">
-                <div className="container">
-                    <h2>Ready to Experience Quality Fittings?</h2>
-                    <p>
-                        Visit our store or contact us to explore our wide range of sanitary and plumbing products.
-                    </p>
-                    <div className="cta-buttons">
-                        <a
-                            href="tel:+919983174974"
-                            className="btn btn-outline"
-                            style={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff" }}
-                        >
-                            <FaCheckCircle /> Call Now
-                        </a>
-                        <Link
-                            href="/contact"
-                            className="btn"
-                            style={{ background: "var(--white)", color: "var(--navy)" }}
-                        >
-                            Contact Us
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <PremiumCTA />
         </>
     );
 }
