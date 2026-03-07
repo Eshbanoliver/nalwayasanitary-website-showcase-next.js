@@ -5566,6 +5566,21 @@ body {
   }
 }
 
+/* Sidebar CTA Hover Effects (Sub-Pages Only) */
+.sub-page-cta .p-cta-btn-sub-primary:hover {
+  background: var(--teal) !important;
+  color: white !important;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+.sub-page-cta .p-cta-btn-sub-outline:hover {
+  background: white !important;
+  color: var(--navy) !important;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
 .services-v2-container {
   background: var(--navy);
   padding: 100px 0;

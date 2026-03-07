@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { serviceCategories } from "../../data/services";
+import PremiumCTA from "@/components/PremiumCTA";
 import {
     FaArrowRight,
     FaChevronRight,
@@ -178,26 +179,7 @@ export default function ServiceCategoryPage() {
             </section>
 
             {/* ====== CTA ====== */}
-            <section className="section section-navy">
-                <div className="container" style={{ textAlign: "center" }}>
-                    <h2 className="section-title" style={{ color: "#fff", marginBottom: 16 }}>
-                        Need Help Choosing the Right Product?
-                    </h2>
-                    <p style={{ color: "rgba(255,255,255,0.75)", marginBottom: 32, maxWidth: 600, margin: "0 auto 32px" }}>
-                        Our team of experts is ready to assist you in selecting the perfect
-                        {" "}{category.title.toLowerCase()} for your project. Contact us for
-                        personalized recommendations.
-                    </p>
-                    <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                        <Link href="/contact" className="btn btn-primary">
-                            Contact Us <FaArrowRight />
-                        </Link>
-                        <Link href="/" className="btn btn-outline">
-                            Back to Home <FaHome />
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <PremiumCTA isSubPage={true} />
         </>
     );
 }

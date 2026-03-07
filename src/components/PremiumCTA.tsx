@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRef, useEffect } from "react";
-import { FaPhoneAlt, FaArrowRight, FaTools, FaHandshake } from "react-icons/fa";
+import { FaPhoneAlt, FaArrowRight, FaTools, FaHandshake, FaBoxes } from "react-icons/fa";
 
 /* -------  Scroll-in animation hook  ------- */
 function useAnimateOnScroll() {
@@ -36,21 +36,23 @@ function AnimateOnScroll({ children, className = "" }: { children: React.ReactNo
     );
 }
 
-export default function PremiumCTA() {
+export default function PremiumCTA({ isSubPage = false }: { isSubPage?: boolean }) {
     return (
-        <section style={{
-            margin: '20px auto 100px',
-            width: 'calc(100% - 40px)',
-            maxWidth: '1050px',
-            padding: '110px 24px',
-            background: 'radial-gradient(circle at center, #2F4156 0%, #1e2d3d 100%)',
-            position: 'relative',
-            overflow: 'hidden',
-            color: '#fff',
-            textAlign: 'center',
-            borderRadius: '50px',
-            boxShadow: '0 40px 80px rgba(0,0,0,0.12)'
-        }}>
+        <section
+            className={isSubPage ? "premium-cta-v3 sub-page-cta" : "premium-cta-v3"}
+            style={{
+                margin: '20px auto 100px',
+                width: 'calc(100% - 40px)',
+                maxWidth: '1050px',
+                padding: '110px 24px',
+                background: 'radial-gradient(circle at center, #2F4156 0%, #1e2d3d 100%)',
+                position: 'relative',
+                overflow: 'hidden',
+                color: '#fff',
+                textAlign: 'center',
+                borderRadius: '50px',
+                boxShadow: '0 40px 80px rgba(0,0,0,0.12)'
+            }}>
             {/* Decorative atmospheric elements */}
             <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(209, 23, 75, 0.12) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }}></div>
             <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: '400px', height: '400px', background: 'radial-gradient(circle, rgba(86, 124, 141, 0.15) 0%, transparent 70%)', borderRadius: '50%', pointerEvents: 'none' }}></div>
@@ -83,35 +85,57 @@ export default function PremiumCTA() {
                             for authentic products and expert solutions across Rajasthan.
                         </p>
                         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
-                            <Link href="tel:+919983174974" style={{
-                                padding: '18px 40px',
-                                borderRadius: '100px',
-                                background: '#fff',
-                                color: '#2F4156',
-                                fontWeight: 800,
-                                fontSize: '1rem',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '12px',
-                                boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
-                                transition: 'all 0.3s ease'
-                            }}>
-                                <FaPhoneAlt /> Call Now
-                            </Link>
-                            <Link href="/contact" style={{
-                                padding: '18px 40px',
-                                borderRadius: '100px',
-                                background: 'rgba(255, 255, 255, 0.08)',
-                                color: '#fff',
-                                fontWeight: 800,
-                                fontSize: '1rem',
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '12px',
-                                border: '1px solid rgba(255,255,255,0.3)',
-                                backdropFilter: 'blur(10px)',
-                                transition: 'all 0.3s ease'
-                            }}>
+                            {isSubPage ? (
+                                <Link href="/services"
+                                    className="p-cta-btn-sub-primary"
+                                    style={{
+                                        padding: '18px 40px',
+                                        borderRadius: '100px',
+                                        background: '#fff',
+                                        color: '#2F4156',
+                                        fontWeight: 800,
+                                        fontSize: '1rem',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '12px',
+                                        boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                                        transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                                    }}>
+                                    <FaBoxes /> Back to Services
+                                </Link>
+                            ) : (
+                                <Link href="tel:+919983174974" style={{
+                                    padding: '18px 40px',
+                                    borderRadius: '100px',
+                                    background: '#fff',
+                                    color: '#2F4156',
+                                    fontWeight: 800,
+                                    fontSize: '1rem',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '12px',
+                                    boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
+                                    transition: 'all 0.3s ease'
+                                }}>
+                                    <FaPhoneAlt /> Call Now
+                                </Link>
+                            )}
+                            <Link href="/contact"
+                                className="p-cta-btn-sub-outline"
+                                style={{
+                                    padding: '18px 40px',
+                                    borderRadius: '100px',
+                                    background: 'rgba(255, 255, 255, 0.08)',
+                                    color: '#fff',
+                                    fontWeight: 800,
+                                    fontSize: '1rem',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '12px',
+                                    border: '1px solid rgba(255,255,255,0.3)',
+                                    backdropFilter: 'blur(10px)',
+                                    transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+                                }}>
                                 Contact Us <FaArrowRight />
                             </Link>
                         </div>
