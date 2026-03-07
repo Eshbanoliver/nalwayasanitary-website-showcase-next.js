@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -16,6 +16,10 @@ export const metadata: Metadata = {
     "spare parts sanitary",
     "plumbing solutions Rajasthan",
   ],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#567c8d",
 };
 
 export default function RootLayout({

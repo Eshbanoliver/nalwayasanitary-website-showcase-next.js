@@ -153,14 +153,15 @@ export default function Navbar() {
                     <div key={link.href} className="mobile-nav-item-wrapper">
                         {link.hasMega ? (
                             <>
-                                <div
-                                    className={`mobile-nav-link ${pathname === link.href ? "active" : ""}`}
-                                    onClick={() => setMobileMegaOpen(!mobileMegaOpen)}
+                                <a
+                                    href={link.href}
+                                    className={`mobile-nav-link ${pathname === link.href || pathname.startsWith(link.href + '/') ? "active" : ""}`}
+                                    onClick={(e) => { e.preventDefault(); setMobileMegaOpen(!mobileMegaOpen); }}
                                     style={{ display: "flex", justifyContent: "space-between", cursor: "pointer" }}
                                 >
                                     <span>{link.label}</span>
                                     <FaChevronDown style={{ transform: mobileMegaOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "0.3s" }} />
-                                </div>
+                                </a>
                                 <div className={`mobile-mega-menu ${mobileMegaOpen ? "open" : ""}`}>
                                     {serviceCategories.map(cat => (
                                         <Link key={cat.slug} href={`/services/${cat.slug}`} className="mobile-mega-item">
