@@ -57,11 +57,13 @@ export default function Navbar() {
             <div className="header-wrapper">
                 {/* Logo Section */}
                 <div className="header-logo-section">
-                    <Link href="/" className="nav-logo">
-                        <div className="call-icon-circle" style={{ width: 45, height: 45, background: 'linear-gradient(135deg, var(--navy), var(--teal))' }}>
-                            <FaGlobe />
-                        </div>
-                        <span style={{ fontSize: '1.5rem', fontWeight: 800 }}>
+                    <Link href="/" className="nav-logo" style={{ display: 'flex', alignItems: 'center', gap: '15px', textDecoration: 'none' }}>
+                        <img
+                            src="/logo.png"
+                            alt="Nalwaya Fittings Logo"
+                            style={{ width: '55px', height: '55px', objectFit: 'contain' }}
+                        />
+                        <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--navy)' }}>
                             Nalwaya <span style={{ color: "var(--teal)" }}>Fittings</span>
                         </span>
                     </Link>

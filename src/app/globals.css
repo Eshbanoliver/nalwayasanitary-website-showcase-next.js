@@ -6315,6 +6315,11 @@ body {
     height: 2.5px;
   }
 
+  .header-logo-section .nav-logo img {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
   /* -- Hero -- */
   .hero-content {
     max-width: 100%;
@@ -6452,10 +6457,9 @@ body {
     gap: 8px;
   }
 
-  .header-logo-section .nav-logo .call-icon-circle {
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 0.95rem;
+  .header-logo-section .nav-logo img {
+    width: 42px !important;
+    height: 42px !important;
   }
 
   .header-logo-section .nav-logo span {
@@ -7215,6 +7219,11 @@ body {
     font-size: 1.3rem;
   }
 
+  .footer-logo-v3 img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
   .footer-desc-v3 {
     font-size: 0.92rem;
     line-height: 1.7;
@@ -7366,10 +7375,9 @@ body {
     min-width: 170px;
   }
 
-  .header-logo-section .nav-logo .call-icon-circle {
-    width: 32px !important;
-    height: 32px !important;
-    font-size: 0.85rem;
+  .header-logo-section .nav-logo img {
+    width: 34px !important;
+    height: 34px !important;
   }
 
   .header-logo-section .nav-logo span {
@@ -7703,6 +7711,11 @@ body {
     width: 38px;
     height: 38px;
     font-size: 1.1rem;
+  }
+
+  .footer-logo-v3 img {
+    width: 40px !important;
+    height: 40px !important;
   }
 
   .footer-desc-v3 {

@@ -17,8 +17,12 @@ export default function Footer() {
                         {/* Column 1: Brand & Contact */}
                         <div className="footer-brand-v3">
                             <div className="footer-logo-v3">
-                                <div className="logo-icon-v3">N</div>
-                                <span>Nalwaya Fittings</span>
+                                <img
+                                    src="/logo.png"
+                                    alt="Nalwaya Fittings Logo"
+                                    style={{ width: '60px', height: '60px', objectFit: 'contain', marginBottom: '10px' }}
+                                />
+                                <span style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--white)' }}>Nalwaya Fittings</span>
                             </div>
                             <p className="footer-desc-v3">
                                 Your trusted source for genuine sanitary fittings, plumbing
