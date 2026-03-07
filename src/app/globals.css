@@ -6275,9 +6275,13 @@ body {
 /* ===================== TABLET (max-width: 1024px) ===================== */
 @media (max-width: 1024px) {
 
-  /* -- Header -- */
+  /* -- Header (preserve desktop identity) -- */
   .header-wrapper {
-    height: 75px;
+    height: 72px;
+    background: var(--navy);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: visible;
   }
 
   .header-nav-section {
@@ -6289,20 +6293,26 @@ body {
   }
 
   .header-logo-section {
-    clip-path: none;
-    background: transparent;
-    padding: 0 0 0 20px;
-    min-width: auto;
-    flex: 1;
+    background: var(--white);
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+    padding: 0 40px 0 24px;
+    min-width: 230px;
+    flex: 0 0 auto;
   }
 
   .nav-toggle {
     display: flex;
     position: absolute;
-    right: 20px;
+    right: 22px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1001;
+  }
+
+  .nav-toggle span {
+    background: var(--white) !important;
+    width: 26px;
+    height: 2.5px;
   }
 
   /* -- Hero -- */
@@ -6393,12 +6403,13 @@ body {
   /* -- Root Overrides -- */
   :root {
     --section-padding: 60px 0;
-    --nav-height: 65px;
+    --nav-height: 62px;
   }
 
-  /* -- Header & Navigation -- */
+  /* -- Top Bar (compact but preserving identity) -- */
   .top-bar {
-    padding: 6px 0;
+    padding: 5px 0;
+    font-size: 0.72rem;
   }
 
   .top-bar-info {
@@ -6413,22 +6424,42 @@ body {
     width: 100%;
     justify-content: center;
     gap: 18px;
+    align-items: center;
   }
 
   .top-bar-social span {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
   }
 
+  /* -- Header (preserve navy + white logo identity) -- */
   .header-wrapper {
-    height: 65px;
-    background: var(--white);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+    height: 62px;
+    background: var(--navy);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
     overflow: visible;
     position: relative;
   }
 
+  .header-logo-section {
+    background: var(--white);
+    clip-path: polygon(0 0, 88% 0, 100% 100%, 0 100%);
+    padding: 0 35px 0 16px;
+    min-width: 200px;
+    flex: 0 0 auto;
+  }
+
+  .header-logo-section .nav-logo {
+    gap: 8px;
+  }
+
+  .header-logo-section .nav-logo .call-icon-circle {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.95rem;
+  }
+
   .header-logo-section .nav-logo span {
-    font-size: 1.15rem !important;
+    font-size: 1.1rem !important;
     color: var(--navy) !important;
   }
 
@@ -6436,28 +6467,65 @@ body {
     color: var(--teal) !important;
   }
 
+  /* Hamburger icon (white on navy) */
   .nav-toggle span {
-    background: var(--navy);
-    width: 26px;
+    background: var(--white) !important;
+    width: 24px;
     height: 2.5px;
     border-radius: 2px;
   }
 
   .nav-toggle.open span {
-    background: var(--navy);
+    background: var(--white) !important;
   }
 
-  /* -- Mobile Nav Drawer -- */
+  /* -- Mobile Nav Drawer (Premium branded) -- */
   .mobile-nav {
-    width: 90%;
-    max-width: 360px;
-    padding: 90px 28px 28px;
+    width: 85%;
+    max-width: 340px;
+    padding: 0;
+    background: var(--navy);
+    border-left: 3px solid var(--teal);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav::before {
+    content: '';
+    display: block;
+    padding: 28px 24px 22px;
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .mobile-nav a {
-    padding: 15px 18px;
-    font-size: 1rem;
-    border-radius: 12px;
+    padding: 15px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav a.active {
+    background: rgba(86, 124, 141, 0.15);
+    color: var(--teal-light);
+    border-left-color: var(--teal);
+  }
+
+  /* Mobile Nav Overlay */
+  .mobile-nav-overlay {
+    background: rgba(30, 45, 61, 0.5);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
   }
 
   /* -- Page Headers -- */
@@ -7124,27 +7192,36 @@ body {
     height: 300px;
   }
 
-  /* -- Footer V3 -- */
+  /* -- Footer V3 (preserve dark premium identity) -- */
   .footer-v3 {
     padding: 40px 0 0;
+    border-top-width: 3px;
   }
 
   .footer-grid-v3 {
     grid-template-columns: 1fr;
-    gap: 35px;
-    padding-bottom: 25px;
+    gap: 40px;
+    padding-bottom: 30px;
   }
 
   .footer-logo-v3 {
     font-size: 1.5rem;
+    gap: 12px;
+  }
+
+  .logo-icon-v3 {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
   }
 
   .footer-desc-v3 {
     font-size: 0.92rem;
+    line-height: 1.7;
   }
 
   .footer-phone-big-v3 {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
   }
 
   .phone-icon-v3 {
@@ -7158,37 +7235,66 @@ body {
   }
 
   .footer-title-v3 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    margin-bottom: 12px;
   }
 
+  .title-divider-v3 {
+    margin-bottom: 25px;
+  }
+
+  /* Keep 2-column links layout like desktop */
   .links-subgrid-v3 {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
+  }
+
+  .footer-link-list-v3 li {
+    margin-bottom: 14px;
+  }
+
+  .footer-link-list-v3 li a {
+    font-size: 0.88rem;
+    gap: 10px;
   }
 
   .gallery-grid-v3 {
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 10px;
   }
 
-  .bottom-content-v3 {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
+  .gallery-item-v3 {
+    border-radius: 10px;
+  }
+
+  /* Footer Bottom — preserve teal slant, fix wrapping */
+  .footer-bottom-v3 {
+    padding: 30px 0;
   }
 
   .bottom-slanted-bg-v3 {
     width: 100%;
     clip-path: none;
+    opacity: 0.95;
+  }
+
+  .bottom-content-v3 {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    align-items: center;
   }
 
   .copyright-v3 {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    padding: 0 10px;
   }
 
   .payment-icons-v3 {
     font-size: 1.8rem;
-    gap: 16px;
+    gap: 14px;
+    justify-content: center;
   }
 
   /* -- Buttons -- */
@@ -7248,18 +7354,35 @@ body {
     padding: 0 14px;
   }
 
-  /* -- Header -- */
+  /* -- Header (preserve navy identity at small screens) -- */
   .header-wrapper {
-    height: 58px;
-    padding: 0 10px;
+    height: 55px;
+    background: var(--navy);
+  }
+
+  .header-logo-section {
+    clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);
+    padding: 0 28px 0 12px;
+    min-width: 170px;
+  }
+
+  .header-logo-section .nav-logo .call-icon-circle {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.85rem;
   }
 
   .header-logo-section .nav-logo span {
-    font-size: 1rem !important;
+    font-size: 0.92rem !important;
+  }
+
+  .nav-toggle {
+    right: 14px;
   }
 
   .nav-toggle span {
     width: 22px;
+    background: var(--white) !important;
   }
 
   /* -- Hero -- */
@@ -7550,59 +7673,93 @@ body {
     font-size: 0.78rem;
   }
 
-  /* -- Mobile Nav -- */
+  /* -- Mobile Nav (branded at small screens) -- */
   .mobile-nav {
-    width: 92%;
-    max-width: 300px;
-    padding: 80px 20px 20px;
+    width: 88%;
+    max-width: 280px;
+  }
+
+  .mobile-nav::before {
+    padding: 22px 18px 18px;
+    font-size: 1.2rem;
   }
 
   .mobile-nav a {
-    padding: 13px 14px;
-    font-size: 0.92rem;
+    padding: 13px 18px;
+    font-size: 0.88rem;
   }
 
-  /* -- Footer -- */
+  /* -- Footer (compact but preserving identity) -- */
   .footer-v3 {
-    padding: 35px 0 0;
+    padding: 30px 0 0;
   }
 
   .footer-logo-v3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     gap: 10px;
   }
 
   .logo-icon-v3 {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
+    width: 38px;
+    height: 38px;
+    font-size: 1.1rem;
   }
 
   .footer-desc-v3 {
-    font-size: 0.85rem;
-    margin-bottom: 25px;
+    font-size: 0.84rem;
+    margin-bottom: 22px;
   }
 
   .phone-info-v3 a {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
+  }
+
+  .phone-icon-v3 {
+    width: 44px;
+    height: 44px;
+  }
+
+  .footer-title-v3 {
+    font-size: 1.1rem;
+  }
+
+  .links-subgrid-v3 {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .footer-link-list-v3 li {
+    margin-bottom: 12px;
+  }
+
+  .footer-link-list-v3 li a {
+    font-size: 0.82rem;
+    gap: 8px;
+  }
+
+  .gallery-grid-v3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
   }
 
   .footer-bottom-v3 {
-    padding: 25px 0;
+    padding: 22px 0;
   }
 
   .copyright-v3 {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+    line-height: 1.8;
+    padding: 0 8px;
   }
 
   .payment-icons-v3 {
-    font-size: 1.5rem;
-    gap: 12px;
+    font-size: 1.4rem;
+    gap: 10px;
   }
 
   /* -- Map -- */
   .map-container iframe {
-    height: 250px;
+    height: 220px;
   }
 }
 
