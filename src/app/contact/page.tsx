@@ -187,7 +187,7 @@ export default function ContactPage() {
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                             />
                                         </div>
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                                        <div className="form-row-v2">
                                             <div className="form-group-v2">
                                                 <label>Phone</label>
                                                 <input
