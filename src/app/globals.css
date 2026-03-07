@@ -3607,7 +3607,7 @@ img {
   text-align: center;
 }
 
-.view-all-bubble {
+.nav-links-modern a.view-all-bubble {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -3620,16 +3620,16 @@ img {
   transition: all 0.3s ease;
 }
 
-.view-all-bubble span {
+.nav-links-modern a.view-all-bubble span {
   font-size: 1.1rem;
   transition: transform 0.3s ease;
 }
 
-.view-all-bubble:hover {
+.nav-links-modern a.view-all-bubble:hover {
   color: var(--teal);
 }
 
-.view-all-bubble:hover span {
+.nav-links-modern a.view-all-bubble:hover span {
   transform: translateX(8px);
 }
 
