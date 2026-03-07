@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { FaStar, FaPhoneAlt, FaArrowRight } from "react-icons/fa";
+import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import PremiumCTA from "@/components/PremiumCTA";
 
 export const metadata: Metadata = {
     title: "Testimonials | Nalwaya Fitting Suppliers – Udaipur",
@@ -104,26 +105,21 @@ export default function TestimonialsPage() {
                             Our customers consistently rate us among the top sanitary and plumbing suppliers in Udaipur.
                         </p>
                     </div>
-                    <div className="testimonials-grid">
+                    <div className="testimonials-modern-grid">
                         {testimonials.map((t, i) => (
-                            <div key={i} className="glass-card testimonial-card">
-                                <div className="testimonial-quote">&ldquo;</div>
-                                <div className="testimonial-stars">
+                            <div key={i} className={`testimonial-card-v3 outline-variant-${(i % 3) + 1}`}>
+                                <div className="testimonial-giant-quote">&ldquo;</div>
+                                <div className="testimonial-stars-v3">
                                     {[...Array(5)].map((_, j) => (
-                                        <FaStar
-                                            key={j}
-                                            style={{
-                                                opacity: j < t.rating ? 1 : 0.25,
-                                            }}
-                                        />
+                                        <FaStar key={j} />
                                     ))}
                                 </div>
-                                <p className="testimonial-text">{t.text}</p>
-                                <div className="testimonial-author">
-                                    <div className="testimonial-avatar">{t.initials}</div>
-                                    <div>
-                                        <div className="testimonial-name">{t.name}</div>
-                                        <div className="testimonial-role">{t.role}</div>
+                                <p className="testimonial-text-v3">{t.text}</p>
+                                <div className="testimonial-author-v3">
+                                    <div className="testimonial-avatar-v3">{t.initials}</div>
+                                    <div className="testimonial-info-v3">
+                                        <h4>{t.name}</h4>
+                                        <span>{t.role}</span>
                                     </div>
                                 </div>
                             </div>
@@ -133,30 +129,7 @@ export default function TestimonialsPage() {
             </section>
 
             {/* CTA */}
-            <section className="cta-section">
-                <div className="container">
-                    <h2>Share Your Experience With Us</h2>
-                    <p>
-                        We love hearing from our customers! Contact us to share your feedback or get in touch for your next project.
-                    </p>
-                    <div className="cta-buttons">
-                        <a
-                            href="tel:+919983174974"
-                            className="btn btn-outline"
-                            style={{ borderColor: "rgba(255,255,255,0.5)", color: "#fff" }}
-                        >
-                            <FaPhoneAlt /> Call Now
-                        </a>
-                        <Link
-                            href="/contact"
-                            className="btn"
-                            style={{ background: "var(--white)", color: "var(--navy)" }}
-                        >
-                            Contact Us <FaArrowRight />
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <PremiumCTA />
         </>
     );
 }

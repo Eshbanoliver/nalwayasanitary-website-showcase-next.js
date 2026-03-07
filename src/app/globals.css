@@ -5792,6 +5792,167 @@ body {
   }
 }
 
+/* ============================================
+   TESTIMONIALS V3 STYLES (Homepage & Testimonials Page)
+   ============================================ */
+.testimonial-section-creative {
+  padding: 100px 0;
+  background: #fdfdfd;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-marquee-container {
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.testimonial-marquee-track {
+  display: flex !important;
+  gap: 30px;
+  width: max-content;
+}
+
+.testimonial-card-v3 {
+  flex-shrink: 0;
+  width: 380px;
+  background: #fff;
+  border-radius: 24px;
+  padding: 45px 35px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.testimonial-card-v3:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-giant-quote {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 5rem;
+  line-height: 1;
+  opacity: 0.05;
+  font-family: serif;
+}
+
+.testimonial-stars-v3 {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 25px;
+  color: #ffb800;
+}
+
+.testimonial-text-v3 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #475569;
+  font-style: italic;
+  margin-bottom: 35px;
+  min-height: 100px;
+}
+
+.testimonial-author-v3 {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.testimonial-avatar-v3 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.testimonial-info-v3 h4 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.testimonial-info-v3 span {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Variant Accents */
+.outline-variant-1 {
+  border-top: 6px solid var(--teal);
+}
+
+.outline-variant-1 .testimonial-avatar-v3 {
+  background: var(--teal);
+}
+
+.outline-variant-1 .testimonial-giant-quote {
+  color: var(--teal);
+}
+
+.outline-variant-2 {
+  border-top: 6px solid var(--cherry-red);
+}
+
+.outline-variant-2 .testimonial-avatar-v3 {
+  background: var(--cherry-red);
+}
+
+.outline-variant-2 .testimonial-giant-quote {
+  color: var(--cherry-red);
+}
+
+.outline-variant-3 {
+  border-top: 6px solid var(--navy);
+}
+
+.outline-variant-3 .testimonial-avatar-v3 {
+  background: var(--navy);
+}
+
+.outline-variant-3 .testimonial-giant-quote {
+  color: var(--navy);
+}
+
+/* Testimonials Page Grid Adjustment */
+.testimonials-modern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.testimonials-modern-grid .testimonial-card-v3 {
+  width: 100% !important;
+  flex-shrink: 1;
+}
+
+@media (max-width: 600px) {
+  .testimonials-modern-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonial-card-v3 {
+    width: 280px;
+    padding: 35px 25px;
+  }
+}
+
 /* ========================
    COMMON ANIMATIONS
    ======================== */
