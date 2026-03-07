@@ -4,15 +4,43 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { FiPhone, FiMenu, FiSearch, FiMail, FiClock } from "react-icons/fi";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaChevronDown } from "react-icons/fa";
+import { serviceCategories } from "@/app/data/services";
 
 const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
-    { href: "/services", label: "Service" },
+    { href: "/services", label: "Service", hasMega: true },
     { href: "/testimonials", label: "Testimonials" },
     { href: "/contact", label: "Contact" },
 ];
+
+function MegaMenu() {
+    return (
+        <div className="mega-menu-wrapper">
+            <div className="mega-bubble">
+                <div className="mega-grid">
+                    {serviceCategories.slice(0, 11).map((cat) => (
+                        <Link key={cat.slug} href={`/services/${cat.slug}`} className="mega-bubble-item">
+                            <div className="bubble-icon">
+                                <img src={cat.image} alt={cat.title} />
+                            </div>
+                            <div className="bubble-text">
+                                <h6>{cat.title}</h6>
+                                <span>{cat.shortDesc.split('.')[0]}</span>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+                <div className="mega-footer">
+                    <Link href="/services" className="view-all-bubble">
+                        View All Categories <span>&rarr;</span>
+                    </Link>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -71,13 +99,15 @@ export default function Navbar() {
                 <div className="header-nav-section">
                     <ul className="nav-links-modern">
                         {navLinks.map((link) => (
-                            <li key={link.href}>
+                            <li key={link.href} className={link.hasMega ? "has-mega" : ""}>
                                 <Link
                                     href={link.href}
                                     className={pathname === link.href ? "active" : ""}
                                 >
                                     {link.label}
+                                    {link.hasMega && <FaChevronDown className="nav-arrow" />}
                                 </Link>
+                                {link.hasMega && <MegaMenu />}
                             </li>
                         ))}
                     </ul>
