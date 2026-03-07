@@ -43,27 +43,20 @@ export default function ServicesPage() {
                         </p>
                     </div>
 
-                    <div className="services-master-grid">
+                    <div className="services-master-grid-v2">
                         {serviceCategories.map((cat, i) => (
-                            <Link
-                                href={`/services/${cat.slug}`}
-                                key={i}
-                                className="glass-card service-master-card"
-                            >
-                                <div className="service-master-image">
+                            <div key={i} className="service-v2-card">
+                                <div className="s-v2-image">
                                     <img src={cat.image} alt={cat.title} />
-                                    <div className="service-master-overlay">
-                                        <span>View Category <FaArrowRight /></span>
-                                    </div>
                                 </div>
-                                <div className="service-master-content">
+                                <div className="s-v2-content">
                                     <h3>{cat.title}</h3>
                                     <p>{cat.shortDesc}</p>
-                                    <div className="product-count-tag">
-                                        {cat.products.length} Products
-                                    </div>
+                                    <Link href={`/services/${cat.slug}`} className="s-v2-btn">
+                                        Discover More <FaArrowRight />
+                                    </Link>
                                 </div>
-                            </Link>
+                            </div>
                         ))}
                     </div>
                 </div>
