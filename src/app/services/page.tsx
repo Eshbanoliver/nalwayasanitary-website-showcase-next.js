@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { serviceCategories } from "../data/services";
+import PremiumCTA from "@/components/PremiumCTA";
 import {
     FaArrowRight,
     FaHome,
@@ -63,26 +64,7 @@ export default function ServicesPage() {
             </section>
 
             {/* ====== CTA SECTION ====== */}
-            <section className="section section-navy">
-                <div className="container" style={{ textAlign: "center" }}>
-                    <h2 className="section-title" style={{ color: "#fff", marginBottom: 16 }}>
-                        Looking for a Wholesale Partnership?
-                    </h2>
-                    <p style={{ color: "rgba(255,255,255,0.75)", marginBottom: 32, maxWidth: 650, margin: "0 auto 32px" }}>
-                        We supply to builders, contractors, and retail shops across Rajasthan.
-                        Contact us today for competitive wholesale pricing and dedicated
-                        project support.
-                    </p>
-                    <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-                        <a href="tel:+919983174974" className="btn btn-primary">
-                            <FaPhoneAlt /> Call +91 99831 74974
-                        </a>
-                        <Link href="/contact" className="btn btn-outline">
-                            Special Inquiry <FaArrowRight />
-                        </Link>
-                    </div>
-                </div>
-            </section>
+            <PremiumCTA />
         </>
     );
 }
