@@ -2878,14 +2878,42 @@ img {
 }
 
 .brand-card {
-  padding: 28px 20px;
+  padding: 30px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  min-height: 110px;
+  transition: all 0.3s ease;
 }
 
-.brand-card h4 {
-  font-weight: 600;
+.brand-card:hover {
+  transform: translateY(-8px);
+  background: white !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+.brand-logo-img {
+  max-width: 100%;
+  max-height: 50px;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.5);
+  transition: all 0.3s ease;
+}
+
+.brand-card:hover .brand-logo-img {
+  filter: grayscale(0) opacity(1);
+}
+
+.brand-name-fallback {
+  display: none;
+  font-weight: 700;
   color: var(--navy);
-  font-size: 0.95rem;
+  font-size: 1rem;
+}
+
+.brand-text-fallback .brand-name-fallback {
+  display: block;
 }
 
 /* ========================

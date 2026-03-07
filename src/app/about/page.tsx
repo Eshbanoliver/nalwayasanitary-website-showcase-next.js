@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BrandsGrid from "@/components/BrandsGrid";
 import {
     FaCheckCircle,
     FaAward,
@@ -20,18 +21,7 @@ export const metadata: Metadata = {
         "Learn about Nalwaya Fitting Suppliers – Udaipur's trusted sanitary fittings and plumbing solutions provider with 20+ years of industry experience.",
 };
 
-const brands = [
-    "Jaquar",
-    "Hindware",
-    "Cera",
-    "Kohler",
-    "Zoloto",
-    "Plasto",
-    "Ashirvad",
-    "Parryware",
-    "Grohe",
-    "Roca",
-];
+
 
 const commitments = [
     {
@@ -195,13 +185,7 @@ export default function AboutPage() {
                             We are authorized dealers and suppliers of globally recognized brands, ensuring you get only the best.
                         </p>
                     </div>
-                    <div className="brands-grid">
-                        {brands.map((brand, i) => (
-                            <div key={i} className="glass-card brand-card">
-                                <h4>{brand}</h4>
-                            </div>
-                        ))}
-                    </div>
+                    <BrandsGrid />
                 </div>
             </section>
 
