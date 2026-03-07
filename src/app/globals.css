@@ -2921,6 +2921,132 @@ img {
   display: block;
 }
 
+/* Commitment V3 Styles */
+.commitments-grid-v3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.commitment-card-v3 {
+  position: relative;
+  border-radius: 24px;
+  background: var(--c-bg, white);
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+.c-card-bg-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140px;
+  height: 140px;
+  background: var(--c-accent-solid);
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+  opacity: 0.1;
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.c-card-inner {
+  position: relative;
+  padding: 40px 35px;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.c-icon-wrapper {
+  width: 85px;
+  height: 85px;
+  background: #C49B28;
+  /* Premium Gold/Mustard from reference */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 30px;
+  color: white !important;
+  box-shadow: 0 15px 30px rgba(196, 155, 40, 0.2);
+  transition: all 0.3s ease;
+}
+
+.commitment-card-v3 h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  font-family: 'Playfair Display', serif;
+}
+
+.commitment-card-v3 p {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 0;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.c-card-footer {
+  width: 100%;
+}
+
+.c-bar {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  transition: all 0.5s ease;
+}
+
+/* Hover States */
+.commitment-card-v3:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.commitment-card-v3:hover .c-card-bg-accent {
+  opacity: 0.2;
+  transform: scale(1.1);
+}
+
+.commitment-card-v3:hover .c-icon-wrapper {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.commitment-card-v3:hover .c-bar {
+  width: 100px;
+  opacity: 0.5;
+}
+
+@media (max-width: 1024px) {
+  .commitments-grid-v3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .commitments-grid-v3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .c-card-inner {
+    padding: 30px 25px;
+  }
+}
+
 /* ========================
    ANIMATIONS
    ======================== */

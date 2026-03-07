@@ -13,6 +13,8 @@ import {
     FaTrophy,
     FaHeart,
     FaThumbsUp,
+    FaWrench,
+    FaStore
 } from "react-icons/fa";
 
 export const metadata: Metadata = {
@@ -26,23 +28,45 @@ export const metadata: Metadata = {
 const commitments = [
     {
         icon: <FaShieldAlt />,
-        title: "100% Genuine Products",
-        desc: "Every product we sell is sourced directly from authorized distributors, ensuring brand authenticity and quality.",
+        title: "Genuine Products",
+        desc: "Trust Verified Quality",
+        bg: "rgba(255, 188, 0, 0.12)", // Creamy Yellow
+        accent: "#C49B28"
     },
     {
         icon: <FaHandshake />,
-        title: "Customer-Centric Approach",
-        desc: "We prioritize customer relationships and work to understand your unique requirements for personalized solutions.",
+        title: "Customer First",
+        desc: "Relationships Matter",
+        bg: "rgba(45, 223, 209, 0.12)", // Minty Teal
+        accent: "#1e8a81"
     },
     {
         icon: <FaTrophy />,
-        title: "Industry Leadership",
-        desc: "With two decades of experience, we have established ourselves as a leading supplier in the Udaipur region.",
+        title: "Industry Leader",
+        desc: "20 Years Excellence",
+        bg: "rgba(76, 175, 80, 0.12)", // Soft Green
+        accent: "#2e7d32"
     },
     {
-        icon: <FaThumbsUp />,
-        title: "After-Sale Support",
-        desc: "Our commitment extends beyond the sale with professional installation support and product guidance.",
+        icon: <FaShieldAlt />,
+        title: "Secure Choice",
+        desc: "Verified Spares",
+        bg: "rgba(99, 102, 241, 0.12)", // Soft Lavender
+        accent: "#4f46e5"
+    },
+    {
+        icon: <FaWrench />,
+        title: "Expert Support",
+        desc: "Technical Precision",
+        bg: "rgba(255, 77, 77, 0.12)", // Soft Rose
+        accent: "#dc2626"
+    },
+    {
+        icon: <FaStore />,
+        title: "Massive Stock",
+        desc: "Ready To Ship",
+        bg: "rgba(168, 85, 247, 0.12)", // Soft Purple
+        accent: "#7c3aed"
     },
 ];
 
@@ -199,40 +223,27 @@ export default function AboutPage() {
                             At Nalwaya Fitting Suppliers, your satisfaction drives everything we do.
                         </p>
                     </div>
-                    <div
-                        style={{
-                            display: "grid",
-                            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                            gap: 24,
-                        }}
-                    >
+                    <div className="commitments-grid-v3">
                         {commitments.map((c, i) => (
-                            <div key={i} className="glass-card" style={{ padding: "36px 28px" }}>
-                                <div
-                                    className="metric-icon"
-                                    style={{ margin: "0 0 20px 0" }}
-                                >
-                                    {c.icon}
+                            <div
+                                key={i}
+                                className="commitment-card-v3"
+                                style={{
+                                    '--c-bg': c.bg,
+                                    '--c-accent-solid': c.accent
+                                } as React.CSSProperties}
+                            >
+                                <div className="c-card-bg-accent"></div>
+                                <div className="c-card-inner">
+                                    <div className="c-icon-wrapper">
+                                        {c.icon}
+                                    </div>
+                                    <h3>{c.title}</h3>
+                                    <p>{c.desc}</p>
+                                    <div className="c-card-footer">
+                                        <div className="c-bar" style={{ background: c.accent }}></div>
+                                    </div>
                                 </div>
-                                <h3
-                                    style={{
-                                        fontWeight: 700,
-                                        color: "var(--navy)",
-                                        marginBottom: 10,
-                                        fontSize: "1.05rem",
-                                    }}
-                                >
-                                    {c.title}
-                                </h3>
-                                <p
-                                    style={{
-                                        color: "var(--text-secondary)",
-                                        fontSize: "0.9rem",
-                                        lineHeight: 1.7,
-                                    }}
-                                >
-                                    {c.desc}
-                                </p>
                             </div>
                         ))}
                     </div>
