@@ -2109,7 +2109,7 @@ img {
   background: #0b151e;
   /* Deep dark navy for footer */
   color: rgba(255, 255, 255, 0.8);
-  padding: 100px 0 0;
+  padding: 50px 0 0;
   position: relative;
   overflow: hidden;
   border-top: 4px solid var(--teal);
@@ -2134,7 +2134,7 @@ img {
   display: grid;
   grid-template-columns: 1.2fr 1.5fr 1fr;
   gap: 60px;
-  padding-bottom: 80px;
+  padding-bottom: 30px;
 }
 
 .footer-logo-v3 {
